@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0b0d10;
+  color: #e7ebef;
+  /* IMPORTANT: use `clip`, not `hidden`.
+     `overflow-x: hidden` turns <body> into a scroll container and breaks
+     `position: sticky` — which pins the scroll-sequence canvas.
+     `clip` trims the horizontal glow overflow without breaking sticky. */
+  overflow-x: clip;
+}
+
+/* Reduced motion: disable the smooth scroll + heavy animations */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Subtle dotted grid used across dark sections */
+.bg-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-grid-green {
+  background-image: radial-gradient(rgba(74, 222, 128, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Signal glow */
+.glow-signal {
+  box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.25),
+    0 0 40px -8px rgba(74, 222, 128, 0.45);
+}
+
+.text-glow {
+  text-shadow: 0 0 32px rgba(74, 222, 128, 0.35);
+}
+
+/* Thin custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0d10;
+}
+::-webkit-scrollbar-thumb {
+  background: #232830;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333b45;
+}
+
+/* Gradient text util */
+.gradient-signal {
+  background: linear-gradient(120deg, #ffffff 0%, #5be895 55%, #22c55e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Section reveal (IntersectionObserver toggles .is-visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
