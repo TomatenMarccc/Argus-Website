@@ -3,14 +3,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { modules } from "@/lib/modules";
 
-const FRAME_COUNT = 125;
+const FRAME_COUNT = 88;
 /** Height of the scroll track. More = slower, more cinematic disassembly. */
 const TRACK_VH = 520;
 /** Progress point where the vehicle starts separating into modules. */
-const EXPLODE_START = 0.72;
+const EXPLODE_START = 0.52;
 
 const framePath = (i: number) =>
-  `/frames/frame-${String(i).padStart(4, "0")}.webp`;
+  `/ugv-scroll/frame-${String(i).padStart(3, "0")}.png`;
 
 function clamp(v: number, lo = 0, hi = 1) {
   return Math.min(hi, Math.max(lo, v));
@@ -183,7 +183,7 @@ export default function ScrollSequence() {
       id="platform"
       className="relative bg-studio text-ink-900"
       style={{ height: `${TRACK_VH}vh` }}
-      aria-label="Interactive platform overview — scroll to disassemble the UGV"
+      aria-label="Interaktive Systemübersicht von ARGUS II"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* soft studio vignette to blend the frames into the section */}
@@ -210,7 +210,7 @@ export default function ScrollSequence() {
         {/* Section kicker */}
         <div className="pointer-events-none absolute left-6 top-6 z-30 md:left-10 md:top-10">
           <p className="font-mono text-[11px] tracking-widest2 text-ink-700">
-            <span className="text-signal-700">◆</span>&nbsp;&nbsp;SYSTEM ARCHITECTURE
+            <span className="text-signal-700">◆</span>&nbsp;&nbsp;SYSTEMARCHITEKTUR
           </p>
         </div>
 
@@ -233,11 +233,11 @@ export default function ScrollSequence() {
           style={{ opacity: introOpacity }}
         >
           <h2 className="max-w-2xl px-6 text-2xl font-semibold tracking-tight text-ink-900 md:text-4xl">
-            One platform.{" "}
-            <span className="text-signal-700">Five modules.</span>
+            Eine Plattform.{" "}
+            <span className="text-signal-700">Vier Systemelemente.</span>
           </h2>
           <p className="mt-3 max-w-md px-6 text-sm text-ink-500 md:text-base">
-            Keep scrolling to take ARGUS apart, layer by layer.
+            Weiter scrollen, um ARGUS II Ebene für Ebene zu erkunden.
           </p>
           <div className="mt-6 flex h-9 w-6 items-start justify-center rounded-full border border-ink-900/25">
             <span className="mt-1.5 h-1.5 w-1.5 animate-scroll-dot rounded-full bg-ink-700" />
@@ -250,7 +250,7 @@ export default function ScrollSequence() {
           style={{ opacity: explodeT > 0.15 ? 1 : 0 }}
         >
           <p className="font-mono text-[11px] tracking-widest2 text-signal-700">
-            EXPLODED VIEW
+            SYSTEMANSICHT
           </p>
         </div>
 
