@@ -1,26 +1,26 @@
 const cols = [
   {
-    title: "Platform",
+    title: "System",
     links: [
-      { label: "System overview", href: "#platform" },
-      { label: "Modules", href: "#modules" },
-      { label: "Specifications", href: "#specs" },
+      { label: "Systemübersicht", href: "#platform" },
+      { label: "Technologie", href: "#modules" },
+      { label: "Projektstatus", href: "#specs" },
     ],
   },
   {
-    title: "Solutions",
+    title: "Nutzung",
     links: [
-      { label: "Applications", href: "#applications" },
-      { label: "Custom payloads", href: "#modules" },
-      { label: "Fleet operations", href: "#specs" },
+      { label: "Anwendungen", href: "#applications" },
+      { label: "Kommunen", href: "#applications" },
+      { label: "Forschung", href: "#applications" },
     ],
   },
   {
-    title: "Company",
+    title: "Projekt",
     links: [
-      { label: "Contact", href: "#contact" },
-      { label: "Request a demo", href: "#contact" },
-      { label: "Careers", href: "#contact" },
+      { label: "Kontakt", href: "#contact" },
+      { label: "Entwicklungsphase", href: "#contact" },
+      { label: "ARGUS II", href: "#specs" },
     ],
   },
 ];
@@ -39,13 +39,13 @@ export default function Footer() {
               <span className="text-sm font-bold tracking-widest text-white">
                 ARGUS
                 <span className="ml-1.5 font-mono text-[10px] font-medium tracking-widest2 text-ink-400">
-                  CIVIL SYSTEMS
+                  BY ARTEMIS
                 </span>
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-400">
-              Named for the all-seeing watchman — autonomous ground vehicles that
-              keep an eye on a changing planet.
+              Mobile, geländegängige Messsysteme für lokale Umweltveränderungen
+              in Wald- und Naturflächen.
             </p>
           </div>
 
@@ -72,10 +72,10 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
           <p className="font-mono text-[11px] tracking-widest text-ink-500">
-            © {new Date().getFullYear()} ARGUS CIVIL SYSTEMS
+            © {new Date().getFullYear()} ARTEMIS CIVIL SYSTEMS
           </p>
           <p className="font-mono text-[11px] tracking-widest text-ink-500">
-            ENVIRONMENTAL INTELLIGENCE · ON THE GROUND
+            MOBILE UMWELTDATENERFASSUNG · ARGUS II
           </p>
         </div>
       </div>

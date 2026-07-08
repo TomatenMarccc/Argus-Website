@@ -18,20 +18,20 @@ export default function Contact() {
       <div className="relative mx-auto max-w-4xl px-6 text-center md:px-10">
         <Reveal>
           <p className="font-mono text-[11px] tracking-widest2 text-signal-500">
-            ◆&nbsp;&nbsp;GET IN TOUCH
+            ◆&nbsp;&nbsp;KONTAKT
           </p>
           <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
-            Put ARGUS on the ground for your mission.
+            Von der Vision zum Prototyp.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink-300 md:text-lg">
-            Tell us what you need to observe and measure. We&apos;ll help you spec
-            a platform, run a pilot, and get verified environmental data flowing.
+            ARGUS I ist für Dezember 2025 eingeordnet, ARGUS II für Juni 2026.
+            Der nachste Schritt ist die Validierung stabiler Datenerfassung
+            unter realen Bedingungen.
           </p>
         </Reveal>
 
         <Reveal delay={120}>
           <form
-            action="mailto:hello@arguscivil.systems"
             method="post"
             encType="text/plain"
             className="mx-auto mt-10 grid max-w-xl gap-3 text-left sm:grid-cols-2"
@@ -46,7 +46,7 @@ export default function Contact() {
               required
               type="email"
               name="email"
-              placeholder="Work email"
+              placeholder="E-Mail"
               className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-ink-400 outline-none transition-colors focus:border-signal-500/60"
             />
             <input
@@ -57,14 +57,14 @@ export default function Contact() {
             <textarea
               name="message"
               rows={4}
-              placeholder="What do you need to measure?"
+              placeholder="Wofür interessieren Sie sich?"
               className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-ink-400 outline-none transition-colors focus:border-signal-500/60 sm:col-span-2"
             />
             <button
               type="submit"
               className="rounded-full bg-signal-500 px-6 py-3 text-sm font-semibold text-ink-950 transition-colors hover:bg-signal-400 sm:col-span-2"
             >
-              Request a demo
+              Interesse mitteilen
             </button>
           </form>
         </Reveal>

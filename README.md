@@ -1,10 +1,9 @@
-# ARGUS Civil Systems — Website
+# Artemis Civil Systems — ARGUS II Website
 
-Modern marketing site for **ARGUS Civil Systems**, built with **Next.js (App Router) + TypeScript + Tailwind CSS**.
+Website for **Artemis Civil Systems** and **ARGUS II**, built with **Next.js (App Router) + TypeScript + Tailwind CSS**.
 
-The centrepiece is a scroll-driven canvas sequence: as you scroll, the UGV rotates
-from front to side view and then disassembles into its five modules, with animated
-callouts revealing each one.
+The centrepiece is a scroll-driven canvas sequence for the ARGUS II system overview.
+The content is based on the Solve for Tomorrow pitch deck and executive summary.
 
 ## Tech stack
 
@@ -40,10 +39,10 @@ app/
 components/
   Nav.tsx           # sticky navigation
   Hero.tsx          # landing hero
-  ScrollSequence.tsx# canvas frame-sequence + module callouts (the core interaction)
-  Modules.tsx       # module detail cards
+  ScrollSequence.tsx# canvas frame-sequence + system callouts
+  Modules.tsx       # technology detail cards
   Applications.tsx  # use cases
-  Specs.tsx         # technical spec sheet
+  Specs.tsx         # project status and sensor overview
   Contact.tsx       # CTA + contact form
   Footer.tsx
 lib/
@@ -54,9 +53,9 @@ public/
 
 ## Editing content
 
-- **Module names & descriptions:** `lib/modules.ts`. The `yPct` / `side` fields control
-  where each callout sits over the exploded UGV — tweak them if you re-render the frames.
-- **Applications, specs, hero copy:** in the matching component under `components/`.
+- **System element names & descriptions:** `lib/modules.ts`. The `yPct` / `side` fields control
+  where each callout sits over the exploded ARGUS II view.
+- **Applications, project status, hero copy:** in the matching component under `components/`.
 - **Colours:** `tailwind.config.ts` (`ink` = charcoal scale, `signal` = green accent,
   `studio` = the grey that matches the frame background).
 

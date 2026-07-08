@@ -11,15 +11,15 @@ export default function Modules() {
       <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         <Reveal>
           <p className="font-mono text-[11px] tracking-widest2 text-signal-500">
-            ◆&nbsp;&nbsp;MODULAR BY DESIGN
+            ◆&nbsp;&nbsp;TECHNOLOGIE
           </p>
           <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
-            Five modules, one mission.
+            Vom Satellitenbild zur lokalen Realität.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-300 md:text-lg">
-            Every ARGUS unit is built from field-swappable modules. Configure the
-            stack for your mission, service it in minutes, and upgrade a single
-            layer without replacing the platform.
+            ARGUS II verbindet Head Node, Sensor-Payload, Middleware und Chassis
+            zu einer mobilen Plattform für Umwelt-, Klima- und
+            Infrastrukturmonitoring vor Ort.
           </p>
         </Reveal>
 
@@ -66,19 +66,19 @@ export default function Modules() {
             <div className="flex h-full flex-col justify-between rounded-2xl border border-signal-500/30 bg-gradient-to-br from-signal-600/15 to-ink-800/40 p-6">
               <div>
                 <h3 className="text-xl font-semibold text-white">
-                  Need a custom payload?
+                  Nachste Entwicklungsphase
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink-200">
-                  The powered payload rail carries third-party sensors and
-                  samplers. Tell us what you need to measure and we&apos;ll spec
-                  the stack.
+                  Fokus: vollständige Off-Grid-Fähigkeit, stabile
+                  Datenerfassung im Gelände, strukturierte Speicherung und
+                  erste Analyseansichten.
                 </p>
               </div>
               <a
                 href="#contact"
                 className="mt-6 inline-flex items-center gap-2 self-start rounded-full bg-signal-500 px-5 py-2.5 text-sm font-semibold text-ink-950 transition-colors hover:bg-signal-400"
               >
-                Talk to engineering
+                Interesse mitteilen
                 <span aria-hidden>→</span>
               </a>
             </div>

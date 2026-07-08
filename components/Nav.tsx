@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#platform", label: "Platform" },
-  { href: "#modules", label: "Modules" },
-  { href: "#applications", label: "Applications" },
-  { href: "#specs", label: "Specs" },
-  { href: "#contact", label: "Contact" },
+  { href: "#platform", label: "System" },
+  { href: "#modules", label: "Technologie" },
+  { href: "#applications", label: "Anwendungen" },
+  { href: "#specs", label: "Status" },
+  { href: "#contact", label: "Kontakt" },
 ];
 
 export default function Nav() {
@@ -39,7 +39,7 @@ export default function Nav() {
           <span className="text-sm font-bold tracking-widest text-white">
             ARGUS
             <span className="ml-1.5 font-mono text-[10px] font-medium tracking-widest2 text-ink-400">
-              CIVIL SYSTEMS
+              BY ARTEMIS
             </span>
           </span>
         </a>
@@ -58,7 +58,7 @@ export default function Nav() {
             href="#contact"
             className="rounded-full bg-signal-500 px-4 py-1.5 text-sm font-semibold text-ink-950 transition-colors hover:bg-signal-400"
           >
-            Request a demo
+            Kontakt
           </a>
         </div>
 
@@ -109,7 +109,7 @@ export default function Nav() {
             onClick={() => setOpen(false)}
             className="mt-2 rounded-full bg-signal-500 px-4 py-2 text-center text-sm font-semibold text-ink-950"
           >
-            Request a demo
+            Kontakt
           </a>
         </div>
       </div>

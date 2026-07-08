@@ -2,39 +2,39 @@ import Reveal from "./Reveal";
 
 const groups = [
   {
-    label: "Mobility",
+    label: "Projektüberblick",
     rows: [
-      ["Drive", "4× independent brushless, all-wheel"],
-      ["Suspension", "Long-travel independent"],
-      ["Max grade", "≈ 35°"],
-      ["Top speed", "12 km/h"],
+      ["Projekt", "Artemis Civil Systems"],
+      ["System", "ARGUS II"],
+      ["Typ", "Modulares, unbemanntes Bodenfahrzeug"],
+      ["Stand", "22. Juni 2026"],
     ],
   },
   {
-    label: "Endurance & Power",
+    label: "Anwendungsfeld",
     rows: [
-      ["Battery", "Hot-swappable Li-ion pack"],
-      ["Runtime", "Up to 12 h (mission dependent)"],
-      ["Charging", "Fast-charge · field-swap"],
-      ["Protection", "IP67 sealed enclosure"],
+      ["Fokus", "Lokales Umwelt-, Klima- und Infrastrukturmonitoring"],
+      ["Flächen", "Wald- und Naturflächen"],
+      ["Zielnutzer", "Forschung · Kommunen · Forstwirtschaft"],
+      ["Weitere Nutzer", "Umweltplanung · Naturschutz"],
     ],
   },
   {
-    label: "Sensing & Autonomy",
+    label: "Sensorik",
     rows: [
-      ["Perception", "LiDAR + EO/IR + GNSS/RTK + IMU"],
-      ["Compute", "On-board edge-AI, offline capable"],
-      ["Air quality", "PM2.5 · PM10 · CO₂ · NOₓ · VOC"],
-      ["Comms", "Dual-band MIMO · mesh · LTE/5G"],
+      ["Mikroklima", "Lufttemperatur · Luftfeuchtigkeit · Luftdruck"],
+      ["Luftqualität", "VOC-Index · Gaswiderstand · CO₂ · Feinstaub"],
+      ["Lichtumgebung", "Helligkeit · Lux"],
+      ["Kontext", "GPS-Position · Video · Akustik"],
     ],
   },
   {
-    label: "Physical",
+    label: "Entwicklungsstand",
     rows: [
-      ["Operating temp", "−20 °C to +55 °C"],
-      ["Payload rail", "Standardised, powered"],
-      ["Data", "Encrypted store-and-forward"],
-      ["Fleet", "Multi-unit coordination"],
+      ["Plattform", "Prototypische Fahrzeugplattform"],
+      ["Daten", "Strukturierte Erfassung lokaler Messwerte"],
+      ["Verarbeitung", "Raspberry-Pi-basierte Datenverarbeitung"],
+      ["Nachster Fokus", "Off-Grid · Validierung · Analyseansichten"],
     ],
   },
 ];
@@ -51,20 +51,21 @@ export default function Specs() {
           {/* Image */}
           <Reveal className="lg:sticky lg:top-28">
             <p className="font-mono text-[11px] tracking-widest2 text-signal-500">
-              ◆&nbsp;&nbsp;TECHNICAL SPECIFICATION
+              ◆&nbsp;&nbsp;PROJEKTSTATUS
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              ARGUS AR‑1
+              ARGUS II
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-ink-300">
-              A field-hardened platform engineered to keep measuring when the
-              conditions get difficult. Full datasheet available on request.
+              Aktueller Prototyp mit modularer Sensorik, Telemetrie,
+              Middleware und Datenverarbeitung für lokale Messdaten in Wald-
+              und Naturflächen.
             </p>
             <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-studio">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/frames/frame-0044.webp"
-                alt="ARGUS AR-1 UGV, side profile"
+                alt="ARGUS II UGV Seitenansicht"
                 className="w-full"
                 loading="lazy"
               />

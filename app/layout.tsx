@@ -2,21 +2,21 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ARGUS Civil Systems — Autonomous UGVs for Environmental Intelligence",
+  title: "Artemis Civil Systems — ARGUS II",
   description:
-    "ARGUS Civil Systems builds rugged, autonomous unmanned ground vehicles (UGVs) for continuous observation and measurement of environmental data — anywhere the data is.",
+    "Mobile Umweltdatenerfassung für Wald- und Naturflächen mit ARGUS II, einem modularen unbemannten Bodenfahrzeug von Artemis Civil Systems.",
   keywords: [
-    "UGV",
-    "unmanned ground vehicle",
-    "environmental monitoring",
-    "autonomous robotics",
-    "ARGUS Civil Systems",
-    "environmental data",
+    "ARGUS II",
+    "Artemis Civil Systems",
+    "Umweltdatenerfassung",
+    "Waldmonitoring",
+    "Naturflächen",
+    "unbemanntes Bodenfahrzeug",
   ],
   openGraph: {
-    title: "ARGUS Civil Systems",
+    title: "Artemis Civil Systems — ARGUS II",
     description:
-      "Rugged autonomous UGVs for environmental observation and measurement.",
+      "Mobile Umweltdatenerfassung für Wald- und Naturflächen.",
     type: "website",
   },
 };
@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

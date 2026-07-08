@@ -12,89 +12,72 @@ export type Module = {
 };
 
 /**
- * Modules are ordered top-to-bottom exactly as the UGV separates in the
- * scroll sequence — from the observation head down to the mobility platform.
- * Copy is a plausible first draft for ARGUS Civil Systems; edit freely.
+ * Modules are ordered top-to-bottom for the exploded scroll sequence.
+ * Content follows the ARGUS II pitch deck and executive summary.
  */
 export const modules: Module[] = [
   {
-    id: "sensor-head",
+    id: "head-node",
     no: "01",
-    name: "Observation & Sensor Head",
-    tagline: "See, measure, verify",
+    name: "Head Node",
+    tagline: "Erfassen, vorverarbeiten, analysieren",
     description:
-      "A gimbal-stabilised sensor turret carrying EO/IR optics, a multispectral camera and a modular air-quality probe. Redundant antennas keep telemetry live even in cluttered terrain, streaming georeferenced observations back to base in real time.",
+      "Die Head Node stellt die Onboard-Rechenleistung für Datenerfassung, Vorverarbeitung und KI-Analyse bereit. Sie bildet den modularen Sensorkopf von ARGUS II.",
     features: [
-      "EO/IR gimbal · 30× stabilised zoom",
-      "Multispectral & thermal imaging",
-      "PM2.5 / PM10 · CO₂ · NOₓ · VOC probes",
-      "Dual-band MIMO antenna array",
+      "Raspberry-Pi-basierte Datenverarbeitung",
+      "Vorverarbeitung lokaler Messdaten",
+      "Vorbereitet für KI-Analyse",
+      "Video, Akustik und Kontextdaten",
     ],
-    yPct: 0.2,
+    yPct: 0.24,
     side: "left",
   },
   {
-    id: "compute-core",
+    id: "sensor-payload",
     no: "02",
-    name: "Edge Compute & Autonomy Core",
-    tagline: "Decisions at the edge",
+    name: "Atmospheric Sensor Payload",
+    tagline: "Mikroklima und Luftqualität",
     description:
-      "The autonomy layer fuses sensor, LiDAR and GNSS data on a ruggedised edge-AI board. On-board perception handles path planning, obstacle avoidance and anomaly detection without a network — so the platform keeps working where connectivity does not.",
+      "Der Sensor-Payload erfasst lokale Umweltwerte für präzise Waldanalysen. Dazu zählen Mikroklima, Luftqualität, Lichtumgebung und georeferenzierte Kontextdaten.",
     features: [
-      "Edge-AI SoC · on-device inference",
-      "Sensor fusion: LiDAR + GNSS/RTK + IMU",
-      "Autonomous waypoint & area survey",
-      "Encrypted store-and-forward telemetry",
+      "Lufttemperatur, Luftfeuchtigkeit, Luftdruck",
+      "VOC-Index, Gaswiderstand, CO2, Feinstaub",
+      "Helligkeit und Lux-Werte",
+      "GPS-Position, Video und Akustik",
     ],
     yPct: 0.4,
     side: "right",
   },
   {
-    id: "payload-bay",
+    id: "middleware",
     no: "03",
-    name: "Power & Payload Bay",
-    tagline: "Endurance you can plan around",
+    name: "Middleware",
+    tagline: "Steuerung, Telemetrie, Energie",
     description:
-      "A sealed, thermally-managed bay houses the hot-swappable battery pack and the powered payload interface. Active cooling and an IP67 enclosure let ARGUS operate through dust, rain and heat while third-party instruments dock through a standard rail.",
+      "Die Middleware koordiniert Sensoren, Aktoren und Kommunikation als zentrale Verbindung zwischen Head Node und Chassis.",
     features: [
-      "Hot-swap battery · 12 h field endurance",
-      "IP67 sealed, actively cooled enclosure",
-      "Standardised powered payload rail",
-      "Live power & thermal health monitoring",
+      "Steuerung der Systemkomponenten",
+      "Telemetrie und Systemdaten",
+      "Energieüberwachung",
+      "Schnittstelle zwischen Head Node und Chassis",
     ],
     yPct: 0.56,
     side: "left",
   },
   {
-    id: "actuation",
+    id: "chassis",
     no: "04",
-    name: "Drive & Actuation Layer",
-    tagline: "Torque, precisely placed",
+    name: "Chassis",
+    tagline: "Geländeplattform für lokale Messung",
     description:
-      "Independent brushless drive units deliver the torque for steep grades and soft ground, with closed-loop control at each wheel. The layer isolates the powertrain from the payload, so vibration and heat never reach the sensitive instruments above.",
+      "Das geländegängige UGV-Chassis ist die physische Plattform für lokale Umweltmessung und Beobachtung in Wald- und Naturflächen.",
     features: [
-      "4× independent brushless drive units",
-      "Per-wheel closed-loop traction control",
-      "Vibration-isolated from payload bay",
-      "Regenerative braking on descent",
+      "Modulares, unbemanntes Bodenfahrzeug",
+      "Trägerplattform für Mess- und Beobachtungssysteme",
+      "Prototypische Fahrzeugplattform",
+      "Vorbereitet für zusätzliche Sensoren und Funkmodule",
     ],
-    yPct: 0.7,
+    yPct: 0.74,
     side: "right",
-  },
-  {
-    id: "mobility",
-    no: "05",
-    name: "All-Terrain Mobility Platform",
-    tagline: "Anywhere the data is",
-    description:
-      "A long-travel independent suspension on aggressive all-terrain tyres carries ARGUS across forest floor, mine tailings, wetlands and disaster sites. Low ground pressure protects fragile ground while keeping the sensor head level and steady.",
-    features: [
-      "Long-travel independent suspension",
-      "All-terrain tyres · low ground pressure",
-      "≈35° climb · 0.3 m obstacle clearance",
-      "Amphibious-rated drivetrain seals",
-    ],
-    yPct: 0.84,
-    side: "left",
   },
 ];

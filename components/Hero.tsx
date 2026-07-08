@@ -21,21 +21,22 @@ export default function Hero() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal-500" />
             <span className="font-mono text-[11px] tracking-widest2 text-ink-300">
-              AUTONOMOUS ENVIRONMENTAL UGV
+              MOBILE UMWELTDATENERFASSUNG
             </span>
           </div>
 
           <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Ground truth,
+            Sehen, was
             <br />
-            <span className="gradient-signal text-glow">autonomously.</span>
+            <span className="gradient-signal text-glow">
+              Satelliten übersehen.
+            </span>
           </h1>
 
           <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-300 md:text-lg">
-            ARGUS Civil Systems builds rugged, self-driving ground vehicles that
-            observe and measure the environment where it actually happens — in
-            forests, wetlands, mines and disaster zones — and stream verified data
-            back in real time.
+            Artemis Civil Systems entwickelt ARGUS II: ein modulares,
+            unbemanntes Bodenfahrzeug für lokale Umwelt-, Klima- und
+            Infrastrukturdaten in Wald- und Naturflächen.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -43,22 +44,22 @@ export default function Hero() {
               href="#platform"
               className="rounded-full bg-signal-500 px-6 py-3 text-sm font-semibold text-ink-950 transition-colors hover:bg-signal-400"
             >
-              Explore the platform
+              System ansehen
             </a>
             <a
               href="#contact"
               className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-white/40 hover:bg-white/5"
             >
-              Request a demo
+              Kontakt aufnehmen
             </a>
           </div>
 
           {/* stat row */}
           <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/10 pt-6">
             {[
-              { v: "12 h", k: "Field endurance" },
-              { v: "IP67", k: "All-weather rated" },
-              { v: "24/7", k: "Autonomous survey" },
+              { v: "6,6 Mrd.", k: "Euro Extremwetterschäden/Jahr" },
+              { v: "75%", k: "Bäume mit Schäden" },
+              { v: "11,5 Mio.", k: "Hektar Waldfläche in Deutschland" },
             ].map((s) => (
               <div key={s.k}>
                 <dt className="text-2xl font-bold text-white md:text-3xl">
@@ -78,15 +79,15 @@ export default function Hero() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/frames/frame-0001.webp"
-            alt="ARGUS autonomous environmental UGV, front view"
+            alt="ARGUS II modulares unbemanntes Bodenfahrzeug"
             className="relative z-10 mx-auto w-full max-w-xl rounded-2xl border border-white/10 shadow-2xl"
             loading="eager"
           />
           <div className="absolute right-4 top-4 z-20 rounded-lg border border-white/10 bg-ink-950/70 px-3 py-2 backdrop-blur">
             <p className="font-mono text-[10px] tracking-widest text-signal-400">
-              MODEL
+              SYSTEM
             </p>
-            <p className="text-sm font-semibold text-white">ARGUS AR‑1</p>
+            <p className="text-sm font-semibold text-white">ARGUS II</p>
           </div>
         </div>
       </div>
