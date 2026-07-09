@@ -3,7 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { modules } from "@/lib/modules";
 
-const FRAME_COUNT = 88;
+const FIRST_FRAME = 44;
+const LAST_FRAME = 88;
+const FRAME_COUNT = LAST_FRAME - FIRST_FRAME + 1;
 /** Height of the scroll track. More = slower, more cinematic disassembly. */
 const TRACK_VH = 520;
 /** Progress point where the vehicle starts separating into modules. */
@@ -11,6 +13,8 @@ const EXPLODE_START = 0.52;
 
 const framePath = (i: number) =>
   `/ugv-scroll/frame-${String(i).padStart(3, "0")}.png`;
+
+const scrollModules = [...modules].sort((a, b) => a.yPct - b.yPct);
 
 function clamp(v: number, lo = 0, hi = 1) {
   return Math.min(hi, Math.max(lo, v));
@@ -125,7 +129,7 @@ export default function ScrollSequence() {
       img.onload = img.onerror = () => {
         markSettled(i);
       };
-      img.src = framePath(i + 1);
+      img.src = framePath(FIRST_FRAME + i);
       if (img.complete) markSettled(i);
     }
 
@@ -174,15 +178,19 @@ export default function ScrollSequence() {
   }, [ready, scheduleDraw]);
 
   const explodeT = clamp((progress - EXPLODE_START) / (1 - EXPLODE_START));
-  const introOpacity = clamp(1 - progress / 0.12);
   const pct = Math.round(progress * 100);
 
   return (
     <section
       ref={sectionRef}
       id="platform"
-      className="relative bg-studio text-ink-900"
-      style={{ height: `${TRACK_VH}vh` }}
+      className="scroll-track relative bg-studio text-ink-900"
+      style={
+        {
+          "--scroll-track-height": `${TRACK_VH}vh`,
+          "--scroll-track-height-stable": `${TRACK_VH}svh`,
+        } as React.CSSProperties
+      }
       aria-label="Interaktive Systemübersicht von ARGUS II"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
@@ -200,63 +208,25 @@ export default function ScrollSequence() {
         {/* Loading state */}
         {loaded < FRAME_COUNT && (
           <div className="absolute left-1/2 top-6 z-40 -translate-x-1/2">
-            <div className="flex items-center gap-2 rounded-full border border-ink-900/10 bg-white/60 px-3 py-1 font-mono text-[11px] tracking-widest text-ink-700 backdrop-blur">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal-600" />
-              LOADING SEQUENCE {Math.round((loaded / FRAME_COUNT) * 100)}%
+            <div className="rounded-full border border-ink-900/10 bg-white/60 p-2 backdrop-blur">
+              <span className="block h-1.5 w-1.5 animate-pulse rounded-full bg-signal-600" />
             </div>
           </div>
         )}
 
-        {/* Section kicker */}
-        <div className="pointer-events-none absolute left-6 top-6 z-30 md:left-10 md:top-10">
-          <p className="font-mono text-[11px] tracking-widest2 text-ink-700">
-            <span className="text-signal-700">◆</span>&nbsp;&nbsp;SYSTEMARCHITEKTUR
-          </p>
-        </div>
-
         {/* Progress readout */}
-        <div className="pointer-events-none absolute right-6 top-6 z-30 flex items-center gap-3 md:right-10 md:top-10">
+        <div className="pointer-events-none absolute right-6 top-6 z-30 md:right-10 md:top-10">
           <div className="h-24 w-px overflow-hidden rounded bg-ink-900/15">
             <div
               className="w-full bg-signal-600 transition-none"
               style={{ height: `${pct}%` }}
             />
           </div>
-          <span className="font-mono text-[11px] tabular-nums tracking-widest text-ink-700">
-            {String(pct).padStart(2, "0")}
-          </span>
-        </div>
-
-        {/* Intro overlay (fades as you begin scrolling) */}
-        <div
-          className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-end pb-24 text-center md:pb-28"
-          style={{ opacity: introOpacity }}
-        >
-          <h2 className="max-w-2xl px-6 text-2xl font-semibold tracking-tight text-ink-900 md:text-4xl">
-            Eine Plattform.{" "}
-            <span className="text-signal-700">Vier Systemelemente.</span>
-          </h2>
-          <p className="mt-3 max-w-md px-6 text-sm text-ink-500 md:text-base">
-            Weiter scrollen, um ARGUS II Ebene für Ebene zu erkunden.
-          </p>
-          <div className="mt-6 flex h-9 w-6 items-start justify-center rounded-full border border-ink-900/25">
-            <span className="mt-1.5 h-1.5 w-1.5 animate-scroll-dot rounded-full bg-ink-700" />
-          </div>
-        </div>
-
-        {/* Exploded-view label */}
-        <div
-          className="pointer-events-none absolute left-1/2 top-8 z-30 -translate-x-1/2 text-center transition-opacity duration-500"
-          style={{ opacity: explodeT > 0.15 ? 1 : 0 }}
-        >
-          <p className="font-mono text-[11px] tracking-widest2 text-signal-700">
-            SYSTEMANSICHT
-          </p>
         </div>
 
         {/* Module callouts — revealed as the vehicle separates */}
         <div className="absolute inset-0 z-30">
-          {modules.map((m, i) => {
+          {scrollModules.map((m, i) => {
             const appear = clamp((explodeT - i * 0.06) / 0.28);
             const isLeft = m.side === "left";
             return (

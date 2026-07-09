@@ -4,14 +4,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Artemis Civil Systems — ARGUS II",
   description:
-    "Mobile Umweltdatenerfassung für Wald- und Naturflächen mit ARGUS II, einem modularen unbemannten Bodenfahrzeug von Artemis Civil Systems.",
+    "Mobile Umweltdatenerfassung für Wald- und Naturflächen mit ARGUS II, einer modularen Fahrzeugplattform von Artemis Civil Systems.",
   keywords: [
     "ARGUS II",
     "Artemis Civil Systems",
     "Umweltdatenerfassung",
     "Waldmonitoring",
     "Naturflächen",
-    "unbemanntes Bodenfahrzeug",
+    "modulare Fahrzeugplattform",
   ],
   openGraph: {
     title: "Artemis Civil Systems — ARGUS II",

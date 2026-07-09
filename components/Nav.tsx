@@ -29,7 +29,7 @@ export default function Nav() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+      <nav className="site-shell flex items-center justify-between py-4">
         <a href="#top" className="group flex items-center gap-2.5">
           <span className="relative flex h-7 w-7 items-center justify-center">
             <span className="absolute inset-0 rounded-full border border-signal-500/60" />
@@ -93,7 +93,7 @@ export default function Nav() {
           open ? "max-h-96" : "max-h-0"
         }`}
       >
-        <div className="flex flex-col gap-1 px-6 py-4">
+        <div className="site-shell flex flex-col gap-1 py-4">
           {links.map((l) => (
             <a
               key={l.href}

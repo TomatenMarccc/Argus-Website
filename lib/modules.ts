@@ -24,13 +24,13 @@ export const modules: Module[] = [
     description:
       "Die Head Node stellt die Onboard-Rechenleistung für Datenerfassung, Vorverarbeitung und KI-Analyse bereit. Sie bildet den modularen Sensorkopf von ARGUS II.",
     features: [
-      "Raspberry-Pi-basierte Datenverarbeitung",
+      "Edge Computing Unit für lokale Datenverarbeitung",
       "Vorverarbeitung lokaler Messdaten",
       "Vorbereitet für KI-Analyse",
       "Video, Akustik und Kontextdaten",
     ],
-    yPct: 0.24,
-    side: "left",
+    yPct: 0.34,
+    side: "right",
   },
   {
     id: "sensor-payload",
@@ -38,15 +38,14 @@ export const modules: Module[] = [
     name: "Atmospheric Sensor Payload",
     tagline: "Mikroklima und Luftqualität",
     description:
-      "Der Sensor-Payload erfasst lokale Umweltwerte für präzise Waldanalysen. Dazu zählen Mikroklima, Luftqualität, Lichtumgebung und georeferenzierte Kontextdaten.",
+      "Der Sensor-Payload erfasst lokale Umweltwerte für präzise Waldanalysen. Dazu zählen Mikroklima, Luftqualität und Lichtumgebung.",
     features: [
-      "Lufttemperatur, Luftfeuchtigkeit, Luftdruck",
-      "VOC-Index, Gaswiderstand, CO2, Feinstaub",
-      "Helligkeit und Lux-Werte",
-      "GPS-Position, Video und Akustik",
+      "Lufttemperatur und Luftdruck",
+      "VOC-Index, Gaswiderstand, CO₂, Feinstaub",
+      "Lichtumgebung als Lux-Wert",
     ],
-    yPct: 0.4,
-    side: "right",
+    yPct: 0.24,
+    side: "left",
   },
   {
     id: "middleware",
@@ -70,11 +69,10 @@ export const modules: Module[] = [
     name: "Chassis",
     tagline: "Geländeplattform für lokale Messung",
     description:
-      "Das geländegängige UGV-Chassis ist die physische Plattform für lokale Umweltmessung und Beobachtung in Wald- und Naturflächen.",
+      "Das geländegängige Chassis ist die physische Plattform für lokale Umweltmessung und Beobachtung in Wald- und Naturflächen.",
     features: [
-      "Modulares, unbemanntes Bodenfahrzeug",
+      "Modulare Fahrzeugplattform",
       "Trägerplattform für Mess- und Beobachtungssysteme",
-      "Prototypische Fahrzeugplattform",
       "Vorbereitet für zusätzliche Sensoren und Funkmodule",
     ],
     yPct: 0.74,

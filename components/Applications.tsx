@@ -39,7 +39,7 @@ export default function Applications() {
       id="applications"
       className="relative border-t border-white/5 bg-ink-950 py-24 md:py-32"
     >
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
+      <div className="site-shell relative">
         <Reveal>
           <p className="font-mono text-[11px] tracking-widest2 text-signal-500">
             ◆&nbsp;&nbsp;ANWENDUNGSFELDER

@@ -15,9 +15,9 @@ export default function Hero() {
       />
       <div className="pointer-events-none absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-signal-600/10 blur-3xl" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 pb-16 pt-32 md:grid-cols-2 md:px-10 md:pt-28">
+      <div className="site-shell relative z-10 grid items-center gap-10 pb-16 pt-32 md:grid-cols-[minmax(0,1fr)_minmax(22rem,0.9fr)] md:pt-28 xl:gap-16">
         {/* Left: copy */}
-        <div>
+        <div className="min-w-0">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal-500" />
             <span className="font-mono text-[11px] tracking-widest2 text-ink-300">
@@ -34,8 +34,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-300 md:text-lg">
-            Artemis Civil Systems entwickelt ARGUS II: ein modulares,
-            unbemanntes Bodenfahrzeug für lokale Umwelt-, Klima- und
+            Artemis Civil Systems entwickelt ARGUS II: eine modulare
+            Fahrzeugplattform für lokale Umwelt-, Klima- und
             Infrastrukturdaten in Wald- und Naturflächen.
           </p>
 
@@ -74,20 +74,22 @@ export default function Hero() {
         </div>
 
         {/* Right: product hero image */}
-        <div className="relative">
+        <div className="relative min-w-0">
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal-500/5 blur-2xl" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/frames/frame-0001.webp"
-            alt="ARGUS II modulares unbemanntes Bodenfahrzeug"
-            className="relative z-10 mx-auto w-full max-w-xl rounded-2xl border border-white/10 shadow-2xl"
-            loading="eager"
-          />
-          <div className="absolute right-4 top-4 z-20 rounded-lg border border-white/10 bg-ink-950/70 px-3 py-2 backdrop-blur">
-            <p className="font-mono text-[10px] tracking-widest text-signal-400">
-              SYSTEM
-            </p>
-            <p className="text-sm font-semibold text-white">ARGUS II</p>
+          <div className="relative z-10 mx-auto w-fit max-w-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/argus-front.jpeg"
+              alt="ARGUS II modulare Fahrzeugplattform"
+              className="h-auto max-h-[72vh] w-auto max-w-full rounded-2xl border border-white/10 shadow-2xl"
+              loading="eager"
+            />
+            <div className="absolute right-4 top-4 z-20 rounded-lg border border-white/10 bg-ink-950/70 px-3 py-2 backdrop-blur">
+              <p className="font-mono text-[10px] tracking-widest text-signal-400">
+                SYSTEM
+              </p>
+              <p className="text-sm font-semibold text-white">ARGUS II</p>
+            </div>
           </div>
         </div>
       </div>

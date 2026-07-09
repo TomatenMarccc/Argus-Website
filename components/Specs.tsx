@@ -4,9 +4,9 @@ const groups = [
   {
     label: "Projektüberblick",
     rows: [
-      ["Projekt", "Artemis Civil Systems"],
+      ["Projekt", "ARGUS II"],
       ["System", "ARGUS II"],
-      ["Typ", "Modulares, unbemanntes Bodenfahrzeug"],
+      ["Typ", "Modulare unbemannte Bodenplattform"],
       ["Stand", "22. Juni 2026"],
     ],
   },
@@ -16,25 +16,24 @@ const groups = [
       ["Fokus", "Lokales Umwelt-, Klima- und Infrastrukturmonitoring"],
       ["Flächen", "Wald- und Naturflächen"],
       ["Zielnutzer", "Forschung · Kommunen · Forstwirtschaft"],
-      ["Weitere Nutzer", "Umweltplanung · Naturschutz"],
+      ["Weitere Nutzer", "Umweltplanung · Naturschutz · Tourismus · Bildung"],
     ],
   },
   {
     label: "Sensorik",
     rows: [
-      ["Mikroklima", "Lufttemperatur · Luftfeuchtigkeit · Luftdruck"],
+      ["Mikroklima", "Lufttemperatur · Luftdruck"],
       ["Luftqualität", "VOC-Index · Gaswiderstand · CO₂ · Feinstaub"],
-      ["Lichtumgebung", "Helligkeit · Lux"],
-      ["Kontext", "GPS-Position · Video · Akustik"],
+      ["Lichtumgebung", "Lux-Wert"],
     ],
   },
   {
     label: "Entwicklungsstand",
     rows: [
-      ["Plattform", "Prototypische Fahrzeugplattform"],
+      ["Plattform", "Modulare Fahrzeugplattform"],
       ["Daten", "Strukturierte Erfassung lokaler Messwerte"],
-      ["Verarbeitung", "Raspberry-Pi-basierte Datenverarbeitung"],
-      ["Nachster Fokus", "Off-Grid · Validierung · Analyseansichten"],
+      ["Verarbeitung", "Edge Computing Unit"],
+      ["Nächster Fokus", "Off-Grid · Validierung · Analyseansichten"],
     ],
   },
 ];
@@ -46,8 +45,8 @@ export default function Specs() {
       className="relative border-t border-white/5 bg-ink-900 py-24 md:py-32"
     >
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-40" />
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
-        <div className="grid items-start gap-12 lg:grid-cols-2">
+      <div className="site-shell relative">
+        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] 2xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           {/* Image */}
           <Reveal className="lg:sticky lg:top-28">
             <p className="font-mono text-[11px] tracking-widest2 text-signal-500">
@@ -57,9 +56,8 @@ export default function Specs() {
               ARGUS II
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-ink-300">
-              Aktueller Prototyp mit modularer Sensorik, Telemetrie,
-              Middleware und Datenverarbeitung für lokale Messdaten in Wald-
-              und Naturflächen.
+              Modulare Sensorik, Telemetrie, Middleware und Datenverarbeitung
+              für lokale Messdaten in Wald- und Naturflächen.
             </p>
             <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-studio">
               {/* eslint-disable-next-line @next/next/no-img-element */}
