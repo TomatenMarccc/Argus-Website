@@ -36,11 +36,8 @@ export default function Nav() {
             <span className="absolute h-3.5 w-3.5 rounded-full border border-signal-500/70" />
             <span className="h-1.5 w-1.5 rounded-full bg-signal-500 transition-transform group-hover:scale-125" />
           </span>
-          <span className="text-sm font-bold tracking-widest text-white">
-            ARGUS
-            <span className="ml-1.5 font-mono text-[10px] font-medium tracking-widest2 text-ink-400">
-              BY ARTEMIS
-            </span>
+          <span className="text-sm font-bold uppercase tracking-widest text-white">
+            Artemis Civil Systems
           </span>
         </a>
 

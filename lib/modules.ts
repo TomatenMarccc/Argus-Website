@@ -25,8 +25,7 @@ export const modules: Module[] = [
       "Die Head Node stellt die Onboard-Rechenleistung für Datenerfassung, Vorverarbeitung und KI-Analyse bereit. Sie bildet den modularen Sensorkopf von ARGUS II.",
     features: [
       "Edge Computing Unit für lokale Datenverarbeitung",
-      "Vorverarbeitung lokaler Messdaten",
-      "Vorbereitet für KI-Analyse",
+      "Vorverarbeitung lokaler Messdaten und KI-Analyse",
       "Video, Akustik und Kontextdaten",
     ],
     yPct: 0.34,
@@ -56,8 +55,7 @@ export const modules: Module[] = [
       "Die Middleware koordiniert Sensoren, Aktoren und Kommunikation als zentrale Verbindung zwischen Head Node und Chassis.",
     features: [
       "Steuerung der Systemkomponenten",
-      "Telemetrie und Systemdaten",
-      "Energieüberwachung",
+      "Telemetrie, Systemdaten und Energieüberwachung",
       "Schnittstelle zwischen Head Node und Chassis",
     ],
     yPct: 0.56,

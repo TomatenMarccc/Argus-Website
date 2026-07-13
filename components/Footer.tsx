@@ -37,11 +37,8 @@ export default function Footer() {
                 <span className="absolute inset-0 rounded-full border border-signal-500/60" />
                 <span className="h-1.5 w-1.5 rounded-full bg-signal-500" />
               </span>
-              <span className="text-sm font-bold tracking-widest text-white">
-                ARGUS
-                <span className="ml-1.5 font-mono text-[10px] font-medium tracking-widest2 text-ink-400">
-                  BY ARTEMIS
-                </span>
+              <span className="text-sm font-bold uppercase tracking-widest text-white">
+                Artemis Civil Systems
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-400">
