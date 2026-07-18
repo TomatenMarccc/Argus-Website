@@ -1,23 +1,67 @@
 import type { Metadata, Viewport } from "next";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  title: "Artemis Civil Systems — ARGUS II",
+  metadataBase: siteUrl,
+  title: {
+    default: "Artemis Civil Systems | ARGUS II Umweltmonitoring",
+    template: "%s | Artemis Civil Systems",
+  },
   description:
-    "Mobile Umweltdatenerfassung für Wald- und Naturflächen mit ARGUS II, einer modularen Fahrzeugplattform von Artemis Civil Systems.",
+    "Artemis Civil Systems entwickelt ARGUS II zur mobilen Erfassung lokaler Umwelt-, Klima- und Infrastrukturdaten in Wald- und Naturflächen.",
+  applicationName: "Artemis Civil Systems",
+  authors: [{ name: "Artemis Civil Systems", url: "/" }],
+  creator: "Artemis Civil Systems",
+  publisher: "Artemis Civil Systems",
   keywords: [
     "ARGUS II",
     "Artemis Civil Systems",
     "Umweltdatenerfassung",
     "Waldmonitoring",
+    "Umweltmonitoring",
+    "Klimamonitoring",
+    "Umweltsensorik",
+    "UGV",
     "Naturflächen",
     "modulare Fahrzeugplattform",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Artemis Civil Systems — ARGUS II",
+    title: "Artemis Civil Systems | ARGUS II Umweltmonitoring",
     description:
-      "Mobile Umweltdatenerfassung für Wald- und Naturflächen.",
+      "Artemis Civil Systems entwickelt ARGUS II für mobiles Umweltmonitoring in Wald- und Naturflächen.",
     type: "website",
+    locale: "de_DE",
+    siteName: "Artemis Civil Systems",
+    images: [
+      {
+        url: "/images/argus-front.jpeg",
+        alt: "ARGUS II – modulare mobile Plattform für Umweltmonitoring",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Artemis Civil Systems | ARGUS II Umweltmonitoring",
+    description:
+      "Mobile Erfassung lokaler Umwelt-, Klima- und Infrastrukturdaten.",
+    images: ["/images/argus-front.jpeg"],
   },
 };
 

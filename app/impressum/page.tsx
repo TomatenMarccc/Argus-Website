@@ -3,7 +3,7 @@ import Link from "next/link";
 import { company } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Impressum — Artemis Civil Systems",
+  title: "Impressum",
   description: "Impressum und Kontaktangaben von Artemis Civil Systems.",
 };
 
