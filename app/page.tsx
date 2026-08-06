@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import ScrollSequence from "@/components/ScrollSequence";
 import Modules from "@/components/Modules";
 import Applications from "@/components/Applications";
 import Specs from "@/components/Specs";
@@ -63,7 +62,7 @@ export default function Home() {
       <main className="relative w-full">
         <Nav />
         <Hero />
-        <ScrollSequence />
+        <div id="platform" />
         <Modules />
         <Applications />
         <Specs />

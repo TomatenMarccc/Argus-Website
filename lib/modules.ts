@@ -5,16 +5,9 @@ export type Module = {
   tagline: string;
   description: string;
   features: string[];
-  /** Vertical center of this module in the exploded frame, as a fraction of height. */
-  yPct: number;
-  /** Which side the callout appears on in the pinned view. */
-  side: "left" | "right";
 };
 
-/**
- * Modules are ordered top-to-bottom for the exploded scroll sequence.
- * Content follows the ARGUS II pitch deck and executive summary.
- */
+/** Content follows the ARGUS II pitch deck and executive summary. */
 export const modules: Module[] = [
   {
     id: "head-node",
@@ -28,8 +21,6 @@ export const modules: Module[] = [
       "Vorverarbeitung lokaler Messdaten und KI-Analyse",
       "Video, Akustik und Kontextdaten",
     ],
-    yPct: 0.34,
-    side: "right",
   },
   {
     id: "sensor-payload",
@@ -43,8 +34,6 @@ export const modules: Module[] = [
       "VOC-Index, Gaswiderstand, CO₂, Feinstaub",
       "Lichtumgebung als Lux-Wert",
     ],
-    yPct: 0.24,
-    side: "left",
   },
   {
     id: "middleware",
@@ -58,8 +47,6 @@ export const modules: Module[] = [
       "Telemetrie, Systemdaten und Energieüberwachung",
       "Schnittstelle zwischen Head Node und Chassis",
     ],
-    yPct: 0.56,
-    side: "left",
   },
   {
     id: "chassis",
@@ -73,7 +60,5 @@ export const modules: Module[] = [
       "Trägerplattform für Mess- und Beobachtungssysteme",
       "Vorbereitet für zusätzliche Sensoren und Funkmodule",
     ],
-    yPct: 0.74,
-    side: "right",
   },
 ];

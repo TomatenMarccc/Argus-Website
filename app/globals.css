@@ -90,16 +90,6 @@ footer {
   }
 }
 
-.scroll-track {
-  height: var(--scroll-track-height, 520vh);
-}
-
-@supports (height: 100svh) {
-  .scroll-track {
-    height: var(--scroll-track-height-stable, var(--scroll-track-height, 520vh));
-  }
-}
-
 /* Reduced motion: disable the smooth scroll + heavy animations */
 @media (prefers-reduced-motion: reduce) {
   html {
