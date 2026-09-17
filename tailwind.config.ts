@@ -9,54 +9,66 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Charcoal base
-        ink: {
-          950: "#07080A",
-          900: "#0B0D10",
-          800: "#111418",
-          700: "#181C22",
-          600: "#232830",
-          500: "#333B45",
-          400: "#5A636F",
+        /* Warm paper tones — the site should feel bright, never gloomy. */
+        paper: {
+          DEFAULT: "#FCFBF7",
+          100: "#F6F4EC",
+          200: "#EFEBDF",
+          300: "#E3DDCB",
         },
-        // Signal green accent (environmental / sensor)
-        signal: {
-          DEFAULT: "#4ADE80",
-          400: "#5BE895",
-          500: "#4ADE80",
-          600: "#22C55E",
-          700: "#16A34A",
+        /* Forest greens, from deep bark-shadow to pale new growth. */
+        forest: {
+          950: "#12271A",
+          900: "#193322",
+          800: "#22452E",
+          700: "#2E5C3D",
+          600: "#3D7A50",
+          500: "#4F9A66",
+          400: "#72B688",
+          300: "#A0D2B1",
+          200: "#CBE7D5",
+          100: "#E7F3EC",
         },
-        studio: "#B6B6B8", // matches the frame background grey
+        /* Warm counterpoint — late light, autumn leaf. */
+        amber: {
+          700: "#8A6220",
+          600: "#B0802C",
+          500: "#D0A24A",
+          400: "#E3BF77",
+          300: "#F0DCAF",
+          100: "#FAF2DF",
+        },
+        bark: {
+          900: "#221E18",
+          700: "#3D362C",
+          500: "#6B6255",
+          400: "#8E8578",
+          300: "#B5AC9D",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        display: ["var(--font-display)", "Georgia", "serif"],
       },
       letterSpacing: {
-        widest2: "0.28em",
+        widest2: "0.22em",
+      },
+      borderRadius: {
+        leaf: "1.75rem 0.5rem 1.75rem 0.5rem",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "pulse-ring": {
-          "0%": { transform: "scale(0.9)", opacity: "0.7" },
-          "70%": { transform: "scale(1.6)", opacity: "0" },
-          "100%": { opacity: "0" },
-        },
-        "scroll-dot": {
-          "0%": { transform: "translateY(0)", opacity: "0" },
-          "40%": { opacity: "1" },
-          "80%": { transform: "translateY(14px)", opacity: "0" },
-          "100%": { opacity: "0" },
+        sway: {
+          "0%, 100%": { transform: "rotate(-0.6deg)" },
+          "50%": { transform: "rotate(0.6deg)" },
         },
       },
       animation: {
-        "fade-up": "fade-up 0.8s cubic-bezier(0.16,1,0.3,1) forwards",
-        "pulse-ring": "pulse-ring 2.4s cubic-bezier(0.16,1,0.3,1) infinite",
-        "scroll-dot": "scroll-dot 1.8s ease-in-out infinite",
+        "fade-up": "fade-up 0.7s cubic-bezier(0.16,1,0.3,1) forwards",
+        sway: "sway 9s ease-in-out infinite",
       },
     },
   },

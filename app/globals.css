@@ -4,7 +4,7 @@
 
 :root {
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -21,9 +21,8 @@
 html {
   scroll-behavior: smooth;
   width: 100%;
-  min-width: 100%;
   min-height: 100%;
-  background-color: #0b0d10;
+  background-color: #fcfbf7;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scrollbar-gutter: stable;
@@ -31,16 +30,19 @@ html {
 
 body {
   width: 100%;
-  min-width: 100%;
   min-height: 100%;
   margin: 0;
-  background-color: #0b0d10;
-  color: #e7ebef;
-  /* IMPORTANT: use `clip`, not `hidden`.
-     `overflow-x: hidden` turns <body> into a scroll container and breaks
-     `position: sticky` — which pins the scroll-sequence canvas.
-     `clip` trims the horizontal glow overflow without breaking sticky. */
+  background-color: #fcfbf7;
+  color: #221e18;
+  /* `clip` rather than `hidden`: `hidden` would turn <body> into a scroll
+     container and break `position: sticky` further down the page. */
   overflow-x: clip;
+}
+
+@supports not (overflow-x: clip) {
+  body {
+    overflow-x: hidden;
+  }
 }
 
 body,
@@ -59,38 +61,82 @@ canvas {
   max-width: 100%;
 }
 
-main,
-section,
-header,
-footer {
-  width: 100%;
-  max-width: none;
+/* Skip link — visible only once focused. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background: #193322;
+  color: #fcfbf7;
+}
+
+:focus-visible {
+  outline: 2px solid #3d7a50;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .site-shell {
-  width: min(100%, 100rem);
-  max-width: 100rem;
+  width: min(100%, 82rem);
   margin-inline: auto;
-  padding-inline: clamp(1.5rem, 4vw, 5rem);
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
 }
 
-@supports not (overflow-x: clip) {
-  body {
-    overflow-x: hidden;
-  }
+/* Display headings sit a touch tighter and use the optical-size axis. */
+.font-display {
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  letter-spacing: -0.015em;
 }
 
-@supports (min-height: 100svh) {
-  .min-h-screen {
-    min-height: 100svh;
-  }
-
-  .h-screen {
-    height: 100svh;
-  }
+/* Hand-drawn feel: a slightly irregular underline for emphasised words. */
+.underline-sketch {
+  background-image: linear-gradient(
+    to right,
+    rgba(208, 162, 74, 0.55),
+    rgba(208, 162, 74, 0.55)
+  );
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 0.32em;
+  padding-inline: 0.06em;
 }
 
-/* Reduced motion: disable the smooth scroll + heavy animations */
+/* Soft paper grain so large light areas do not look flat and synthetic. */
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(
+    rgba(34, 30, 24, 0.045) 1px,
+    transparent 1px
+  );
+  background-size: 4px 4px;
+}
+
+/* Section reveal (IntersectionObserver toggles .is-visible).
+   Scoped to `.js`, which an inline script in <head> sets before first paint.
+   Without scripting the content simply renders — it is never hidden. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -102,61 +148,22 @@ footer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* Subtle dotted grid used across dark sections */
-.bg-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-.bg-grid-green {
-  background-image: radial-gradient(rgba(74, 222, 128, 0.14) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-/* Signal glow */
-.glow-signal {
-  box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.25),
-    0 0 40px -8px rgba(74, 222, 128, 0.45);
-}
-
-.text-glow {
-  text-shadow: 0 0 32px rgba(74, 222, 128, 0.35);
-}
-
-/* Thin custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0d10;
+  background: #f6f4ec;
 }
 ::-webkit-scrollbar-thumb {
-  background: #232830;
+  background: #cbe7d5;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #333b45;
-}
-
-/* Gradient text util */
-.gradient-signal {
-  background: linear-gradient(120deg, #ffffff 0%, #5be895 55%, #22c55e 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Section reveal (IntersectionObserver toggles .is-visible) */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  background: #a0d2b1;
 }

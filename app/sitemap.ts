@@ -11,6 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: new URL("/argus", siteUrl).toString(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: new URL("/impressum", siteUrl).toString(),
       changeFrequency: "yearly",
       priority: 0.2,

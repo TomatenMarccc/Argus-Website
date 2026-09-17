@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import LanguageProvider from "@/components/LanguageProvider";
 import { getSiteUrl } from "@/lib/site-url";
+import { company } from "@/lib/company";
 import "./globals.css";
 
 const siteUrl = getSiteUrl();
@@ -7,30 +9,27 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: "Artemis Civil Systems | ARGUS II Umweltmonitoring",
-    template: "%s | Artemis Civil Systems",
+    default: "Artemis Civil Systems — Dem Wald eine Stimme geben",
+    template: `%s | ${company.name}`,
   },
   description:
-    "Artemis Civil Systems entwickelt ARGUS II zur mobilen Erfassung lokaler Umwelt-, Klima- und Infrastrukturdaten in Wald- und Naturflächen.",
-  applicationName: "Artemis Civil Systems",
-  authors: [{ name: "Artemis Civil Systems", url: "/" }],
-  creator: "Artemis Civil Systems",
-  publisher: "Artemis Civil Systems",
+    "Artemis Civil Systems erfasst lokale Umweltdaten unter dem Kronendach, um Veränderungen im Wald früh sichtbar zu machen.",
+  applicationName: company.name,
+  authors: [{ name: company.name, url: "/" }],
+  creator: company.name,
+  publisher: company.name,
   keywords: [
-    "ARGUS II",
     "Artemis Civil Systems",
-    "Umweltdatenerfassung",
+    "ARGUS",
     "Waldmonitoring",
+    "Umweltdaten",
     "Umweltmonitoring",
-    "Klimamonitoring",
-    "Umweltsensorik",
-    "UGV",
-    "Naturflächen",
-    "modulare Fahrzeugplattform",
+    "Waldschutz",
+    "Biodiversität",
+    "Forstwirtschaft",
+    "Stuttgart",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   robots: {
     index: true,
     follow: true,
@@ -43,30 +42,30 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Artemis Civil Systems | ARGUS II Umweltmonitoring",
+    title: "Artemis Civil Systems — Dem Wald eine Stimme geben",
     description:
-      "Artemis Civil Systems entwickelt ARGUS II für mobiles Umweltmonitoring in Wald- und Naturflächen.",
+      "Wir sammeln lokale Daten dort, wo der Wald lebt — unter dem Kronendach.",
     type: "website",
     locale: "de_DE",
-    siteName: "Artemis Civil Systems",
+    alternateLocale: ["en_GB"],
+    siteName: company.name,
     images: [
       {
         url: "/images/argus-front.jpeg",
-        alt: "ARGUS II – modulare mobile Plattform für Umweltmonitoring",
+        alt: "ARGUS — mobiles Messsystem von Artemis Civil Systems",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Artemis Civil Systems | ARGUS II Umweltmonitoring",
-    description:
-      "Mobile Erfassung lokaler Umwelt-, Klima- und Infrastrukturdaten.",
+    title: "Artemis Civil Systems — Dem Wald eine Stimme geben",
+    description: "Lokale Umweltdaten aus dem Wald, erfasst wo sie entstehen.",
     images: ["/images/argus-front.jpeg"],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B0D10",
+  themeColor: "#FCFBF7",
   width: "device-width",
   initialScale: 1,
 };
@@ -79,6 +78,11 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -86,11 +90,13 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

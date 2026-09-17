@@ -1,8 +1,11 @@
+import SkipLink from "@/components/SkipLink";
 import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
-import Modules from "@/components/Modules";
-import Applications from "@/components/Applications";
-import Specs from "@/components/Specs";
+import Hero from "@/components/home/Hero";
+import Value from "@/components/home/Value";
+import Threats from "@/components/home/Threats";
+import Mission from "@/components/home/Mission";
+import Team from "@/components/home/Team";
+import ArgusTeaser from "@/components/home/ArgusTeaser";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { company } from "@/lib/company";
@@ -10,6 +13,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 export default function Home() {
   const siteUrl = getSiteUrl();
+
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -20,33 +24,27 @@ export default function Home() {
         legalName: company.name,
         url: siteUrl.toString(),
         email: company.email,
+        slogan: "Dem Wald eine Stimme geben.",
+        description:
+          "Artemis Civil Systems erfasst lokale Umweltdaten unter dem Kronendach, um Veränderungen im Wald früh sichtbar zu machen.",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Stuttgart",
+          addressCountry: "DE",
+        },
+        founder: [
+          { "@type": "Person", name: "Simon Pulvermüller" },
+          { "@type": "Person", name: "Marc Abdel Rahman" },
+          { "@type": "Person", name: "Selina Schüßler" },
+        ],
       },
       {
         "@type": "WebSite",
         "@id": new URL("/#website", siteUrl).toString(),
         url: siteUrl.toString(),
         name: company.name,
-        alternateName: "Artemis Civil Systems – ARGUS II",
-        inLanguage: "de-DE",
-        publisher: {
-          "@id": new URL("/#organization", siteUrl).toString(),
-        },
-      },
-      {
-        "@type": "Product",
-        "@id": new URL("/#argus-ii", siteUrl).toString(),
-        name: "ARGUS II",
-        description:
-          "Modulare mobile Bodenplattform zur Erfassung lokaler Umwelt-, Klima- und Infrastrukturdaten in Wald- und Naturflächen.",
-        image: new URL("/images/argus-front.jpeg", siteUrl).toString(),
-        brand: {
-          "@type": "Brand",
-          name: company.name,
-        },
-        manufacturer: {
-          "@id": new URL("/#organization", siteUrl).toString(),
-        },
-        category: "Umweltmonitoring und mobile Umweltsensorik",
+        inLanguage: ["de-DE", "en-GB"],
+        publisher: { "@id": new URL("/#organization", siteUrl).toString() },
       },
     ],
   };
@@ -59,16 +57,18 @@ export default function Home() {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
-      <main className="relative w-full">
-        <Nav />
+      <SkipLink />
+      <Nav />
+      <main id="inhalt" className="relative w-full">
         <Hero />
-        <div id="platform" />
-        <Modules />
-        <Applications />
-        <Specs />
+        <Value />
+        <Threats />
+        <Mission />
+        <Team />
+        <ArgusTeaser />
         <Contact />
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }
