@@ -1,54 +1,53 @@
+"use client";
+
 import Reveal from "./Reveal";
+import { useT } from "./LanguageProvider";
+import { LeafMark } from "./illustrations/Icons";
 import { company } from "@/lib/company";
 
 export default function Contact() {
+  const t = useT();
+
   return (
     <section
-      id="contact"
-      className="relative overflow-hidden border-t border-white/5 bg-ink-950 py-24 md:py-32"
+      id="kontakt"
+      className="relative scroll-mt-24 overflow-hidden bg-forest-800 py-24 text-paper md:py-32"
     >
-      <div className="pointer-events-none absolute inset-0 bg-grid-green opacity-60" />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(60% 60% at 50% 0%, rgba(74,222,128,0.12), rgba(7,8,10,0) 65%)",
-        }}
-      />
+      {/* Soft canopy shapes so the darkest band on the page still feels alive. */}
+      <svg
+        viewBox="0 0 1440 400"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-56 w-full opacity-[0.13]"
+        aria-hidden="true"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0 400V220c120-40 200 20 320-10s180-70 300-50 200 90 330 60 300-80 490-40v220Z"
+          fill="#CBE7D5"
+        />
+      </svg>
 
       <div className="site-shell relative text-center">
         <Reveal>
-          <p className="font-mono text-[11px] tracking-widest2 text-signal-500">
-            ◆&nbsp;&nbsp;KONTAKT
+          <LeafMark className="mx-auto h-8 w-8 text-forest-300" />
+          <p className="mt-5 text-xs font-semibold uppercase tracking-widest2 text-forest-300">
+            {t.contact.eyebrow}
           </p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
-            Kontakt.
+          <h2 className="mt-4 font-display text-4xl font-semibold md:text-5xl">
+            {t.contact.title}
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink-300 md:text-lg">
-            Fragen zu ARGUS II, Kooperationen oder Einsatzfeldern können direkt
-            an Artemis Civil Systems gerichtet werden.
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-paper/75 md:text-lg">
+            {t.contact.lead}
           </p>
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="mx-auto mt-10 max-w-xl text-left">
-            <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-              <h3 className="font-mono text-[11px] uppercase tracking-widest2 text-signal-500">
-                Kontakt
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-300">
-                {company.name}
-                <br />
-                E-Mail:{" "}
-                <a
-                  href={`mailto:${company.email}`}
-                  className="font-medium text-white transition-colors hover:text-signal-400"
-                >
-                  {company.email}
-                </a>
-              </p>
-            </div>
-          </div>
+          <a
+            href={`mailto:${company.email}`}
+            className="mt-10 inline-block break-all rounded-full bg-paper px-7 py-4 font-display text-lg font-semibold text-forest-900 transition-transform hover:scale-[1.02] md:text-xl"
+          >
+            {company.email}
+          </a>
+          <p className="mt-6 text-sm text-paper/60">{t.contact.location}</p>
         </Reveal>
       </div>
     </section>

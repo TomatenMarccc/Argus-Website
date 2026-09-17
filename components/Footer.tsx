@@ -1,66 +1,62 @@
-const cols = [
-  {
-    title: "System",
-    links: [
-      { label: "Systemübersicht", href: "#platform" },
-      { label: "Technologie", href: "#modules" },
-      { label: "Projektstatus", href: "#specs" },
-    ],
-  },
-  {
-    title: "Nutzung",
-    links: [
-      { label: "Anwendungen", href: "#applications" },
-      { label: "Kommunen", href: "#applications" },
-      { label: "Forschung", href: "#applications" },
-    ],
-  },
-  {
-    title: "Projekt",
-    links: [
-      { label: "Kontakt", href: "#contact" },
-      { label: "Entwicklungsphase", href: "#contact" },
-      { label: "ARGUS II", href: "#specs" },
-      { label: "Impressum", href: "/impressum" },
-    ],
-  },
-];
+"use client";
+
+import Link from "next/link";
+import Logo from "./Logo";
+import { useT } from "./LanguageProvider";
+import { company } from "@/lib/company";
 
 export default function Footer() {
+  const t = useT();
+
+  const columns = [
+    {
+      title: t.footer.columnsTitle.site,
+      links: [
+        { label: t.nav.value, href: "/#wert" },
+        { label: t.nav.threats, href: "/#bedrohungen" },
+        { label: t.nav.mission, href: "/#was-wir-tun" },
+        { label: t.nav.team, href: "/#wer-wir-sind" },
+      ],
+    },
+    {
+      title: t.footer.columnsTitle.project,
+      links: [
+        { label: t.nav.argus, href: "/argus" },
+        { label: t.nav.contact, href: "/#kontakt" },
+      ],
+    },
+    {
+      title: t.footer.columnsTitle.legal,
+      links: [{ label: t.footer.imprint, href: "/impressum" }],
+    },
+  ];
+
   return (
-    <footer className="border-t border-white/10 bg-ink-950">
+    <footer className="border-t border-forest-900/10 bg-forest-100">
       <div className="site-shell py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="relative flex h-7 w-7 items-center justify-center">
-                <span className="absolute inset-0 rounded-full border border-signal-500/60" />
-                <span className="h-1.5 w-1.5 rounded-full bg-signal-500" />
-              </span>
-              <span className="text-sm font-bold uppercase tracking-widest text-white">
-                Artemis Civil Systems
-              </span>
-            </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-400">
-              Mobile, geländegängige Messsysteme für lokale Umweltveränderungen
-              in Wald- und Naturflächen.
+            <Logo className="text-forest-900" />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-forest-900/65">
+              {t.footer.tagline}
             </p>
+            <p className="mt-4 text-sm text-forest-900/65">{t.contact.location}</p>
           </div>
 
-          {cols.map((c) => (
+          {columns.map((c) => (
             <div key={c.title}>
-              <h4 className="font-mono text-[11px] uppercase tracking-widest2 text-ink-400">
+              <h4 className="text-xs font-semibold uppercase tracking-widest2 text-forest-900/45">
                 {c.title}
               </h4>
               <ul className="mt-4 space-y-2.5">
                 {c.links.map((l) => (
-                  <li key={l.label}>
-                    <a
+                  <li key={l.label + l.href}>
+                    <Link
                       href={l.href}
-                      className="text-sm text-ink-300 transition-colors hover:text-signal-400"
+                      className="text-sm text-forest-900/75 transition-colors hover:text-forest-700"
                     >
                       {l.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -68,13 +64,16 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
-          <p className="font-mono text-[11px] tracking-widest text-ink-500">
-            © {new Date().getFullYear()} ARTEMIS CIVIL SYSTEMS
+        <div className="mt-12 flex flex-col gap-3 border-t border-forest-900/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-forest-900/50">
+            © {new Date().getFullYear()} {company.name}. {t.footer.rights}
           </p>
-          <p className="font-mono text-[11px] tracking-widest text-ink-500">
-            MOBILE UMWELTDATENERFASSUNG · ARGUS II
-          </p>
+          <a
+            href={`mailto:${company.email}`}
+            className="text-xs text-forest-900/60 transition-colors hover:text-forest-700"
+          >
+            {company.email}
+          </a>
         </div>
       </div>
     </footer>

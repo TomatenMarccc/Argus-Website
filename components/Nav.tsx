@@ -1,113 +1,125 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
-
-const links = [
-  { href: "#platform", label: "System" },
-  { href: "#modules", label: "Technologie" },
-  { href: "#applications", label: "Anwendungen" },
-  { href: "#specs", label: "Status" },
-  { href: "#contact", label: "Kontakt" },
-];
+import Logo from "./Logo";
+import LanguageToggle from "./LanguageToggle";
+import { useT } from "./LanguageProvider";
+import { company } from "@/lib/company";
 
 export default function Nav() {
+  const t = useT();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /* Absolute hrefs so the same nav works from /argus and /impressum too. */
+  const links = [
+    { href: "/#wert", label: t.nav.value },
+    { href: "/#bedrohungen", label: t.nav.threats },
+    { href: "/#was-wir-tun", label: t.nav.mission },
+    { href: "/#wer-wir-sind", label: t.nav.team },
+    { href: "/argus", label: t.nav.argus },
+  ];
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-ink-950/80 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-forest-900/10 bg-paper/85 backdrop-blur-md"
+          : "border-b border-transparent"
       }`}
     >
-      <nav className="site-shell flex items-center justify-between py-4">
-        <a href="#top" className="group flex items-center gap-2.5">
-          <span className="relative flex h-7 w-7 items-center justify-center">
-            <span className="absolute inset-0 rounded-full border border-signal-500/60" />
-            <span className="absolute h-3.5 w-3.5 rounded-full border border-signal-500/70" />
-            <span className="h-1.5 w-1.5 rounded-full bg-signal-500 transition-transform group-hover:scale-125" />
-          </span>
-          <span className="text-sm font-bold uppercase tracking-widest text-white">
-            Artemis Civil Systems
-          </span>
-        </a>
+      <nav className="site-shell flex items-center justify-between py-3.5">
+        <Link
+          href="/"
+          className="text-forest-900 transition-opacity hover:opacity-75"
+          onClick={() => setOpen(false)}
+        >
+          <Logo />
+          <span className="sr-only">{company.name}</span>
+        </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
-              className="text-sm text-ink-400 transition-colors hover:text-white"
+              className="text-sm font-medium text-forest-900/70 transition-colors hover:text-forest-800"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
-            className="rounded-full bg-signal-500 px-4 py-1.5 text-sm font-semibold text-ink-950 transition-colors hover:bg-signal-400"
+          <LanguageToggle />
+          <Link
+            href="/#kontakt"
+            className="rounded-full bg-forest-800 px-4 py-2 text-sm font-semibold text-paper transition-colors hover:bg-forest-700"
           >
-            Kontakt
-          </a>
+            {t.nav.contact}
+          </Link>
         </div>
 
-        <button
-          aria-label="Toggle menu"
-          className="flex h-9 w-9 items-center justify-center md:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <div className="space-y-1.5">
-            <span
-              className={`block h-0.5 w-5 bg-white transition-transform ${
-                open ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-white transition-opacity ${
-                open ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-white transition-transform ${
-                open ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
-          </div>
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <LanguageToggle />
+          <button
+            type="button"
+            aria-label={open ? t.nav.close : t.nav.menu}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-forest-900/15 text-forest-900"
+          >
+            <span className="space-y-1.5">
+              <span
+                className={`block h-0.5 w-5 bg-current transition-transform duration-300 ${
+                  open ? "translate-y-2 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-5 bg-current transition-opacity duration-300 ${
+                  open ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-5 bg-current transition-transform duration-300 ${
+                  open ? "-translate-y-2 -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
       </nav>
 
-      {/* mobile menu */}
       <div
-        className={`overflow-hidden border-t border-white/10 bg-ink-950/95 backdrop-blur-md transition-all duration-300 md:hidden ${
+        id="mobile-menu"
+        className={`overflow-hidden border-t border-forest-900/10 bg-paper/95 backdrop-blur-md transition-[max-height] duration-300 lg:hidden ${
           open ? "max-h-96" : "max-h-0"
         }`}
       >
         <div className="site-shell flex flex-col gap-1 py-4">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="py-2 text-sm text-ink-300 hover:text-white"
+              className="py-2.5 text-base font-medium text-forest-900/80 hover:text-forest-800"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            href="/#kontakt"
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-full bg-signal-500 px-4 py-2 text-center text-sm font-semibold text-ink-950"
+            className="mt-3 rounded-full bg-forest-800 px-4 py-3 text-center text-sm font-semibold text-paper"
           >
-            Kontakt
-          </a>
+            {t.nav.contact}
+          </Link>
         </div>
       </div>
     </header>

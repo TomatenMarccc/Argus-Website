@@ -2,7 +2,7 @@
   "name": "argus-civil-systems",
   "version": "1.0.0",
   "private": true,
-  "description": "Artemis Civil Systems — ARGUS II website.",
+  "description": "Artemis Civil Systems — company website.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
