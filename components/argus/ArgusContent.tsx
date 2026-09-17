@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Reveal from "../Reveal";
+import Photo from "../Photo";
 import Turntable from "./Turntable";
 import { useT } from "../LanguageProvider";
 import { LeafMark } from "../illustrations/Icons";
@@ -55,13 +56,15 @@ export default function ArgusContent() {
             </p>
           </div>
 
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/argus-front.jpeg"
-            alt={t.argusTeaser.imageAlt}
-            className="mx-auto h-auto w-full max-w-sm mix-blend-multiply lg:max-w-md"
-            loading="eager"
-          />
+          <figure className="overflow-hidden rounded-3xl">
+            <Photo
+              id="argusWaldFront"
+              alt={t.argus.heroImageAlt}
+              sizes="(min-width: 1024px) 34rem, 100vw"
+              priority
+              className="h-full max-h-[34rem] w-full object-cover"
+            />
+          </figure>
         </div>
       </section>
 

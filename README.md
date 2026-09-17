@@ -47,9 +47,11 @@ components/
   Nav.tsx  Footer.tsx  Contact.tsx  Logo.tsx  Reveal.tsx  SkipLink.tsx
   home/                   # Hero, Value, Threats, Mission, Team, ArgusTeaser
   argus/                  # ArgusContent, Turntable (360° viewer)
-  illustrations/          # ForestScene, Icons — hand-coded SVG, no photography
+  Photo.tsx               # responsive <img> driven by the photo manifest
+  illustrations/          # Icons — hand-drawn line icons for the content blocks
 lib/
   i18n.ts                 # ALL site copy, German and English
+  photos.ts               # photo manifest: paths, sizes, origin and licence
   company.ts              # name, contact email, location
   site-url.ts             # canonical URL helper
 ```
@@ -75,15 +77,19 @@ follows the selection. The browser locale is deliberately *not* sniffed.
 
 ## Imagery
 
-The forest illustrations in `components/illustrations/` are hand-coded SVG, not
-generated photography — a deliberate choice, since the brief rules out
-AI-generated forest imagery. They are placeholders: when the team has its own
-photographs, `ForestScene.tsx` and the hero caption in `lib/i18n.ts`
-(`hero.imageCaption`) are what need replacing.
+All photographs are registered in `lib/photos.ts` together with where they came
+from and under which licence they may be used, and are rendered through
+`components/Photo.tsx`, which builds the `srcset` from pre-generated WebP
+variants. Do not reference a file in `public/images/photos` directly — go
+through the manifest, so provenance stays traceable.
 
-The ARGUS photographs in `public/images` and `public/frames` are the company's
-own studio shots. `public/frames` is a 125-frame turntable; the viewer on
-`/argus` uses every fifth frame and only starts loading them once scrolled near.
+The ARGUS photographs are the company's own material. **The two forest
+photographs on the homepage are not yet licence-cleared** — see
+`public/images/photos/README.md` for what needs establishing before go-live, and
+`photosNeedingLicenceReview()` for the list in code.
+
+`public/frames` holds a 125-frame studio turntable of ARGUS II; the viewer on
+`/argus` uses every fifth frame and only starts loading once scrolled near.
 
 ## Accessibility notes
 

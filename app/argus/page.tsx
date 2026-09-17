@@ -16,8 +16,10 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/images/argus-front.jpeg",
-        alt: "ARGUS — mobiles Messsystem von Artemis Civil Systems",
+        url: "/images/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ARGUS auf einem Waldboden zwischen Laub und Zweigen",
       },
     ],
   },

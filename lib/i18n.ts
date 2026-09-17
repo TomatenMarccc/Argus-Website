@@ -54,14 +54,16 @@ const de = {
     primaryCta: "ARGUS kennenlernen",
     secondaryCta: "Was wir tun",
     scroll: "Weiterlesen",
-    imageCaption:
-      "Platzhalter-Illustration — hier steht später ein eigenes Foto eines Misch- oder Laubwalds.",
+    imageAlt:
+      "Weiter Blick über einen dichten Wald, dahinter ein Flusstal und Berge unter hohem, hellem Himmel",
   },
 
   value: {
     eyebrow: "Der Wert des Waldes",
     title: "Warum der Wald zählt.",
     lead: "Der Wald ist weit mehr als Holz und Fläche. Er ist Lebensraum, Klimapuffer, Wasserspeicher und Rückzugsort — oft alles gleichzeitig, auf derselben Fläche.",
+    photoAlt:
+      "Drei Menschen wandern auf einem schmalen Pfad durch einen hellen, frühlingsgrünen Laubwald",
     items: [
       {
         title: "Lebensraum und Biodiversität",
@@ -183,7 +185,8 @@ const de = {
       "Wiederholbar, damit Veränderungen vergleichbar werden",
     ],
     cta: "ARGUS kennenlernen",
-    imageAlt: "ARGUS — mobiles Messsystem von Artemis Civil Systems, Frontansicht",
+    imageAlt:
+      "ARGUS steht auf dem Laub eines Waldbodens, im Hintergrund grüne Bäume",
   },
 
   contact: {
@@ -211,6 +214,8 @@ const de = {
     eyebrow: "Das System",
     title: "ARGUS",
     expansion: "Autonomous Reconnaissance Ground Utilization System",
+    heroImageAlt:
+      "ARGUS von vorn auf einem schmalen Waldweg, umgeben von dichtem Grün",
     lead: "ARGUS ist ein Bodenfahrzeug, das auf freigegebenen Waldwegen fährt und dort georeferenzierte Bilddaten sowie Klima-, Luft-, Licht- und Audiodaten unter dem Kronendach erfasst.",
     principleTitle: "Das Prinzip",
     principleBody:
@@ -397,14 +402,16 @@ const en: Dictionary = {
     primaryCta: "Meet ARGUS",
     secondaryCta: "What we do",
     scroll: "Read on",
-    imageCaption:
-      "Placeholder illustration — our own photograph of a mixed or deciduous forest will go here.",
+    imageAlt:
+      "A wide view across dense forest towards a river valley and mountains under a high, bright sky",
   },
 
   value: {
     eyebrow: "Why forests matter",
     title: "What a forest is worth.",
     lead: "A forest is far more than timber and surface area. It is habitat, climate buffer, water store and refuge — often all at once, on the very same ground.",
+    photoAlt:
+      "Three people walking a narrow path through a bright, spring-green deciduous wood",
     items: [
       {
         title: "Habitat and biodiversity",
@@ -525,7 +532,8 @@ const en: Dictionary = {
       "Repeatable, so that change becomes comparable",
     ],
     cta: "Meet ARGUS",
-    imageAlt: "ARGUS — mobile sensing system by Artemis Civil Systems, front view",
+    imageAlt:
+      "ARGUS standing on the leaf litter of a forest floor, green trees behind it",
   },
 
   contact: {
@@ -552,6 +560,8 @@ const en: Dictionary = {
     eyebrow: "The system",
     title: "ARGUS",
     expansion: "Autonomous Reconnaissance Ground Utilization System",
+    heroImageAlt:
+      "ARGUS seen head-on along a narrow forest track, surrounded by dense green",
     lead: "ARGUS is a ground vehicle that travels approved forest tracks, recording georeferenced image data along with climate, air, light and audio readings beneath the canopy.",
     principleTitle: "The principle",
     principleBody:

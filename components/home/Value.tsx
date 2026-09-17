@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "../Reveal";
+import Photo from "../Photo";
 import { useT } from "../LanguageProvider";
 import {
   IconHabitat,
@@ -27,6 +28,17 @@ export default function Value() {
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-bark-700 md:text-lg">
             {t.value.lead}
           </p>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <figure className="mt-12 overflow-hidden rounded-3xl">
+            <Photo
+              id="waldErholung"
+              alt={t.value.photoAlt}
+              sizes="(min-width: 1024px) 78rem, 100vw"
+              className="h-[220px] w-full object-cover sm:h-[300px] lg:h-[380px]"
+            />
+          </figure>
         </Reveal>
 
         <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2">

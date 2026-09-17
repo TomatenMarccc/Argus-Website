@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Reveal from "../Reveal";
+import Photo from "../Photo";
 import { useT } from "../LanguageProvider";
 
 export default function ArgusTeaser() {
@@ -66,15 +67,14 @@ export default function ArgusTeaser() {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="relative overflow-hidden rounded-3xl bg-paper-100 p-6 md:p-10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/argus-front.jpeg"
+            <figure className="overflow-hidden rounded-3xl">
+              <Photo
+                id="argusWaldSeite"
                 alt={t.argusTeaser.imageAlt}
-                className="mx-auto h-auto w-full max-w-md mix-blend-multiply"
-                loading="lazy"
+                sizes="(min-width: 1024px) 38rem, 100vw"
+                className="h-full w-full object-cover"
               />
-            </div>
+            </figure>
           </Reveal>
         </div>
       </div>
