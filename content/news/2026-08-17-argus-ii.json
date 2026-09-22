@@ -1,0 +1,16 @@
+{
+  "id": "seed-argus-ii",
+  "slug": "argus-ii-zweite-entwicklungsstufe",
+  "title": "ARGUS II: modularer, robuster, näher am Feldeinsatz",
+  "excerpt": "Die zweite Entwicklungsstufe unserer mobilen Datenerfassung ist modular aufgebaut — mit überarbeiteter Mechanik, Energieversorgung, Sensorik und Rechenleistung.",
+  "body": "ARGUS entsteht in aufeinander aufbauenden Entwicklungsstufen. Mit ARGUS I haben wir Fahrtechnik, Sensorik und Datenerfassung grundsätzlich erprobt. Die Erkenntnisse daraus fliessen in ARGUS II ein.\n\nDie zweite Stufe ist deutlich modularer aufgebaut. Überarbeitet wurden Mechanik, Energieversorgung, Sensorik und Rechenleistung.\n\n## Mission bestimmt Hardware\n\nWichtiger als einzelne Komponenten ist das Prinzip dahinter: ARGUS ist kein fest konfigurierter Roboter, sondern ein Baukasten. Welche Sensorik tatsächlich verbaut wird, entscheidet die jeweilige Fragestellung — Gelände, Messziel und Einsatzdauer.\n\nDamit bleibt die Plattform offen für weitere Erfassungswege, ohne dass die Datenverarbeitung dahinter jedes Mal neu entworfen werden muss.\n\n## Nächster Schritt\n\nAls Nächstes stehen Zuverlässigkeit und Einsatz im realen Bestand auf dem Prüfstand: Fahrzeug, Sensorik, Datenpipeline und Ablauf. Einen vollständig autonomen Regelbetrieb beanspruchen wir ausdrücklich noch nicht.",
+  "category": "Technologie",
+  "tags": ["ARGUS", "Entwicklung"],
+  "coverImage": "/images/photos/argus-wald-seite-1200.webp",
+  "images": [],
+  "publishedAt": "2026-08-17",
+  "status": "published",
+  "titleEn": "ARGUS II: more modular, more robust, closer to the field",
+  "excerptEn": "The second development stage of our mobile data collection is modular — with reworked mechanics, power supply, sensors and compute.",
+  "bodyEn": "ARGUS is being built in successive development stages. With ARGUS I we tested the fundamentals of driving, sensing and data capture. What we learned feeds into ARGUS II.\n\nThe second stage is markedly more modular. Mechanics, power supply, sensors and compute have all been reworked.\n\n## The mission decides the hardware\n\nMore important than any individual component is the principle behind it: ARGUS is not a fixed robot but a modular kit. Which sensors are actually fitted depends on the question being asked — terrain, measurement goal and duration.\n\nThat keeps the platform open to further collection methods without having to redesign the data processing behind it each time.\n\n## Next step\n\nNext up are reliability and deployment in a real stand: vehicle, sensors, data pipeline and procedure. We explicitly do not yet claim fully autonomous routine operation."
+}

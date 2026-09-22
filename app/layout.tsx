@@ -9,24 +9,25 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: "Artemis Civil Systems — Dem Wald eine Stimme geben",
+    default: "Artemis Civil Systems — Wildlife & Environmental Monitoring",
     template: `%s | ${company.name}`,
   },
   description:
-    "Artemis Civil Systems erfasst lokale Umweltdaten unter dem Kronendach, um Veränderungen im Wald früh sichtbar zu machen.",
+    "Artemis Civil Systems entwickelt Systeme zur Erfassung und Auswertung von Wildtier- und Umweltdaten — damit Veränderungen in Lebensräumen früh sichtbar werden.",
   applicationName: company.name,
   authors: [{ name: company.name, url: "/" }],
   creator: company.name,
   publisher: company.name,
   keywords: [
     "Artemis Civil Systems",
-    "ARGUS",
-    "Waldmonitoring",
+    "Wildlife Monitoring",
+    "Wildtiermonitoring",
+    "Environmental Monitoring",
     "Umweltdaten",
-    "Umweltmonitoring",
-    "Waldschutz",
     "Biodiversität",
-    "Forstwirtschaft",
+    "Lebensraum-Monitoring",
+    "Datenerfassung",
+    "ARGUS",
     "Stuttgart",
   ],
   alternates: { canonical: "/" },
@@ -42,9 +43,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Artemis Civil Systems — Dem Wald eine Stimme geben",
+    title: "Artemis Civil Systems — Wildlife & Environmental Monitoring",
     description:
-      "Wir sammeln lokale Daten dort, wo der Wald lebt — unter dem Kronendach.",
+      "Wir erfassen und erschließen Wildtier- und Umweltdaten — dort, wo der Lebensraum ist.",
     type: "website",
     locale: "de_DE",
     alternateLocale: ["en_GB"],
@@ -60,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Artemis Civil Systems — Dem Wald eine Stimme geben",
-    description: "Lokale Umweltdaten aus dem Wald, erfasst wo sie entstehen.",
+    title: "Artemis Civil Systems — Wildlife & Environmental Monitoring",
+    description: "Wildtier- und Umweltdaten, erfasst wo sie entstehen.",
     images: ["/images/og.jpg"],
   },
 };

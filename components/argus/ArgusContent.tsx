@@ -68,15 +68,15 @@ export default function ArgusContent() {
         </div>
       </section>
 
-      {/* ---------- Principle + ATHENE ---------- */}
+      {/* ---------- ARGUS in context ---------- */}
       <section className="bg-paper py-24 md:py-28">
         <div className="site-shell grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <h2 className="font-display text-3xl font-semibold text-forest-950 md:text-4xl">
-              {t.argus.principleTitle}
+              {t.argus.contextTitle}
             </h2>
             <p className="mt-5 text-base leading-relaxed text-bark-700 md:text-lg">
-              {t.argus.principleBody}
+              {t.argus.contextBody}
             </p>
           </Reveal>
 
@@ -84,14 +84,24 @@ export default function ArgusContent() {
             <div className="h-full rounded-3xl border border-forest-900/10 bg-forest-100 p-8">
               <LeafMark className="h-7 w-7 text-forest-600" />
               <h3 className="mt-5 font-display text-2xl font-semibold text-forest-950">
-                {t.argus.athene.title}
+                {t.insights.platformTitle}
               </h3>
               <p className="mt-2 font-display text-sm italic text-forest-700">
-                {t.argus.athene.expansion}
+                {t.insights.platformExpansion}
               </p>
               <p className="mt-5 text-[0.95rem] leading-relaxed text-bark-700">
-                {t.argus.athene.body}
+                {t.insights.platformBody}
               </p>
+              <Link
+                href="/#auswertung"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-forest-800 hover:text-forest-600"
+              >
+                {t.nav.insights}
+                <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor"
+                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M4 10h11M11 5l5 5-5 5" />
+                </svg>
+              </Link>
             </div>
           </Reveal>
         </div>

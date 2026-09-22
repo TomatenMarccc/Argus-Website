@@ -8,6 +8,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      /* The admin area is internal and must never be indexed. */
+      disallow: ["/admin", "/admin/", "/api/"],
     },
     sitemap: new URL("/sitemap.xml", siteUrl).toString(),
   };

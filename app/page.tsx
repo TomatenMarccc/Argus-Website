@@ -1,18 +1,27 @@
 import SkipLink from "@/components/SkipLink";
 import Nav from "@/components/Nav";
 import Hero from "@/components/home/Hero";
+import What from "@/components/home/What";
 import Value from "@/components/home/Value";
 import Threats from "@/components/home/Threats";
-import Mission from "@/components/home/Mission";
+import Collection from "@/components/home/Collection";
+import Insights from "@/components/home/Insights";
+import Technology from "@/components/home/Technology";
+import RoadmapSection from "@/components/home/RoadmapSection";
 import Team from "@/components/home/Team";
-import ArgusTeaser from "@/components/home/ArgusTeaser";
+import LatestNews from "@/components/home/LatestNews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { company } from "@/lib/company";
 import { getSiteUrl } from "@/lib/site-url";
+import { getNewsStore } from "@/lib/news";
+import { team } from "@/lib/team";
 
-export default function Home() {
+export const revalidate = 300;
+
+export default async function Home() {
   const siteUrl = getSiteUrl();
+  const latest = (await getNewsStore().list()).slice(0, 3);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -24,19 +33,20 @@ export default function Home() {
         legalName: company.name,
         url: siteUrl.toString(),
         email: company.email,
+        logo: new URL("/images/brand/logo-mark-512.webp", siteUrl).toString(),
         slogan: "Dem Wald eine Stimme geben.",
         description:
-          "Artemis Civil Systems erfasst lokale Umweltdaten unter dem Kronendach, um Veränderungen im Wald früh sichtbar zu machen.",
+          "Artemis Civil Systems entwickelt Systeme zur Erfassung und Auswertung von Wildtier- und Umweltdaten.",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Stuttgart",
           addressCountry: "DE",
         },
-        founder: [
-          { "@type": "Person", name: "Simon Pulvermüller" },
-          { "@type": "Person", name: "Marc Abdel Rahman" },
-          { "@type": "Person", name: "Selina Schüßler" },
-        ],
+        founder: team.map((m) => ({
+          "@type": "Person",
+          name: m.name,
+          url: new URL(`/team/${m.slug}`, siteUrl).toString(),
+        })),
       },
       {
         "@type": "WebSite",
@@ -61,11 +71,15 @@ export default function Home() {
       <Nav />
       <main id="inhalt" className="relative w-full">
         <Hero />
+        <What />
         <Value />
         <Threats />
-        <Mission />
+        <Collection />
+        <Insights />
+        <Technology />
+        <RoadmapSection />
         <Team />
-        <ArgusTeaser />
+        <LatestNews posts={latest} />
         <Contact />
       </main>
       <Footer />
