@@ -18,7 +18,11 @@ export type SocialLink = {
 
 /** Company-wide profiles. */
 export const social: SocialLink[] = [
-  { platform: "linkedin", label: "LinkedIn", url: "" },
+  {
+    platform: "linkedin",
+    label: "Artemis Civil Systems auf LinkedIn",
+    url: "https://www.linkedin.com/company/artemis-civil-systems/",
+  },
   { platform: "instagram", label: "Instagram", url: "" },
   { platform: "youtube", label: "YouTube", url: "" },
 ];
