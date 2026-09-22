@@ -45,13 +45,13 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="/argus"
+            href="#was-wir-tun"
             className="rounded-full bg-forest-800 px-7 py-3.5 text-sm font-semibold text-paper shadow-sm transition-colors hover:bg-forest-700"
           >
             {t.hero.primaryCta}
           </Link>
           <Link
-            href="#was-wir-tun"
+            href="/argus"
             className="rounded-full border border-forest-900/25 bg-paper/85 px-7 py-3.5 text-sm font-semibold text-forest-900 backdrop-blur-sm transition-colors hover:border-forest-900/45 hover:bg-paper"
           >
             {t.hero.secondaryCta}

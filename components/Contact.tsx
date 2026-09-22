@@ -3,6 +3,7 @@
 import Reveal from "./Reveal";
 import { useT } from "./LanguageProvider";
 import { LeafMark } from "./illustrations/Icons";
+import SocialLinks from "./SocialLinks";
 import { company } from "@/lib/company";
 
 export default function Contact() {
@@ -48,6 +49,7 @@ export default function Contact() {
             {company.email}
           </a>
           <p className="mt-6 text-sm text-paper/60">{t.contact.location}</p>
+          <SocialLinks className="mt-7 justify-center" tone="dark" />
         </Reveal>
       </div>
     </section>

@@ -2,26 +2,31 @@
 
 import Link from "next/link";
 import Logo from "./Logo";
+import SocialLinks from "./SocialLinks";
 import { useT } from "./LanguageProvider";
 import { company } from "@/lib/company";
+import { socialLinks } from "@/lib/brand";
 
 export default function Footer() {
   const t = useT();
+  const hasSocials = socialLinks().length > 0;
 
   const columns = [
     {
       title: t.footer.columnsTitle.site,
       links: [
-        { label: t.nav.value, href: "/#wert" },
-        { label: t.nav.threats, href: "/#bedrohungen" },
-        { label: t.nav.mission, href: "/#was-wir-tun" },
-        { label: t.nav.team, href: "/#wer-wir-sind" },
+        { label: t.nav.what, href: "/#was-wir-tun" },
+        { label: t.nav.collection, href: "/#datenerfassung" },
+        { label: t.nav.insights, href: "/#auswertung" },
+        { label: t.nav.roadmap, href: "/#roadmap" },
       ],
     },
     {
       title: t.footer.columnsTitle.project,
       links: [
         { label: t.nav.argus, href: "/argus" },
+        { label: t.nav.team, href: "/#team" },
+        { label: t.nav.news, href: "/news" },
         { label: t.nav.contact, href: "/#kontakt" },
       ],
     },
@@ -41,6 +46,15 @@ export default function Footer() {
               {t.footer.tagline}
             </p>
             <p className="mt-4 text-sm text-forest-900/65">{t.contact.location}</p>
+
+            {hasSocials && (
+              <div className="mt-6">
+                <h4 className="text-xs font-semibold uppercase tracking-widest2 text-forest-900/45">
+                  {t.footer.followUs}
+                </h4>
+                <SocialLinks className="mt-3" size="sm" />
+              </div>
+            )}
           </div>
 
           {columns.map((c) => (

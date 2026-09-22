@@ -21,10 +21,11 @@ export default function Nav() {
 
   /* Absolute hrefs so the same nav works from /argus and /impressum too. */
   const links = [
-    { href: "/#wert", label: t.nav.value },
-    { href: "/#bedrohungen", label: t.nav.threats },
-    { href: "/#was-wir-tun", label: t.nav.mission },
-    { href: "/#wer-wir-sind", label: t.nav.team },
+    { href: "/#was-wir-tun", label: t.nav.what },
+    { href: "/#datenerfassung", label: t.nav.collection },
+    { href: "/#roadmap", label: t.nav.roadmap },
+    { href: "/#team", label: t.nav.team },
+    { href: "/news", label: t.nav.news },
     { href: "/argus", label: t.nav.argus },
   ];
 
@@ -46,7 +47,7 @@ export default function Nav() {
           <span className="sr-only">{company.name}</span>
         </Link>
 
-        <div className="hidden items-center gap-7 lg:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {links.map((l) => (
             <Link
               key={l.href}

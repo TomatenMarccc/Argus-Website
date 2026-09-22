@@ -73,6 +73,36 @@ export const photos = {
     height: 1200,
     provenance: OWN_MATERIAL,
   },
+
+  /* --- Team ---------------------------------------------------------- */
+  teamGroup: {
+    base: "/images/team/team-gruppe",
+    widths: [600, 800, 1200, 1600],
+    width: 1600,
+    height: 1066,
+    provenance: OWN_MATERIAL,
+  },
+  simon: {
+    base: "/images/team/simon",
+    widths: [480, 700, 1000],
+    width: 1000,
+    height: 1501,
+    provenance: OWN_MATERIAL,
+  },
+  marc: {
+    base: "/images/team/marc",
+    widths: [480, 700, 1000],
+    width: 1000,
+    height: 1501,
+    provenance: OWN_MATERIAL,
+  },
+  selina: {
+    base: "/images/team/selina",
+    widths: [480, 700, 1000],
+    width: 1000,
+    height: 1501,
+    provenance: OWN_MATERIAL,
+  },
 } satisfies Record<string, Photo>;
 
 export type PhotoId = keyof typeof photos;

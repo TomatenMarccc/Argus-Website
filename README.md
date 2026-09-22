@@ -1,99 +1,169 @@
 # Artemis Civil Systems — Website
 
-Company website for **Artemis Civil Systems**, built with **Next.js (App Router) +
-TypeScript + Tailwind CSS**.
+Unternehmenswebsite von **Artemis Civil Systems**, gebaut mit **Next.js 14 (App
+Router) + TypeScript + Tailwind CSS**.
 
-The homepage is written for a general audience and follows the order
-*forest → value → pressures → what we do → who we are → ARGUS*. Technical detail
-lives on the dedicated `/argus` page rather than on the landing page.
+## Positionierung
 
-All factual content is taken from the company's own executive summary and the
-ARGUS platform architecture document.
+Die Website stellt **Wildlife & Environmental Monitoring** in den Mittelpunkt,
+nicht eine einzelne Hardwareplattform. Die inhaltliche Hierarchie der
+Startseite folgt bewusst dieser Reihenfolge:
 
-## Tech stack
+1. Monitoring von Wildtieren und Lebensräumen
+2. Datenerfassung
+3. Auswertung und Erkenntnisse (ATHENE)
+4. Technologie / Systeme
+5. **ARGUS** — als derzeit eingesetztes Werkzeug zur Datenerfassung
 
-- **Next.js 14** (App Router, React 18) — every route is statically rendered
-- **TypeScript**
+ARGUS bleibt prominent sichtbar, erscheint aber überall als Instrument
+innerhalb des größeren Ökosystems, nie als Unternehmenszweck.
+
+Alle inhaltlichen Aussagen stammen aus der Executive Summary (Juli 2026) und
+dem ARGUS Platform Architecture Dokument (August 2026).
+
+## Tech-Stack
+
+- **Next.js 14** App Router, React 18
+- **TypeScript** — `npx tsc --noEmit` muss sauber durchlaufen
 - **Tailwind CSS**
+- Keine zusätzlichen Runtime-Dependencies (auch Supabase wird über `fetch`
+  angesprochen, nicht über einen Client)
 
-## Getting started
+## Loslegen
 
 ```bash
 npm install
-npm run dev
-```
-
-Open http://localhost:3000
-
-### Production build
-
-```bash
-npm run build
+npm run dev     # http://localhost:3000
+npm run build   # Produktionsbuild
 npm start
 ```
 
-## Project structure
+## Projektstruktur
 
 ```
 app/
-  layout.tsx              # fonts, metadata, language provider
-  page.tsx                # homepage composition + structured data
-  argus/page.tsx          # ARGUS detail page
-  impressum/page.tsx      # legal notice
-  globals.css             # theme tokens + utilities
+  page.tsx                  # Startseite (Hierarchie s. o.)
+  argus/page.tsx            # ARGUS-Detailseite
+  news/page.tsx             # News-Übersicht
+  news/[slug]/page.tsx      # Einzelner Beitrag
+  team/[slug]/page.tsx      # Team-Profil (/team/sally -> /team/selina)
+  impressum/page.tsx
+  admin/                    # interner Bereich, nicht in der Navigation
+  api/                      # Session, News-CRUD, Bild-Upload
+  icon.png apple-icon.png   # Favicon aus dem offiziellen Logo
 components/
-  LanguageProvider.tsx    # DE/EN context, persisted in localStorage
-  LanguageToggle.tsx      # DE/EN switch
-  Nav.tsx  Footer.tsx  Contact.tsx  Logo.tsx  Reveal.tsx  SkipLink.tsx
-  home/                   # Hero, Value, Threats, Mission, Team, ArgusTeaser
-  argus/                  # ArgusContent, Turntable (360° viewer)
-  Photo.tsx               # responsive <img> driven by the photo manifest
-  illustrations/          # Icons — hand-drawn line icons for the content blocks
+  home/                     # Hero, What, Value, Threats, Collection,
+                            # Insights, Technology, RoadmapSection, Team,
+                            # LatestNews
+  news/ team/ admin/        # jeweilige Bereichskomponenten
+  Photo.tsx SocialLinks.tsx Logo.tsx Nav.tsx Footer.tsx …
 lib/
-  i18n.ts                 # ALL site copy, German and English
-  photos.ts               # photo manifest: paths, sizes, origin and licence
-  company.ts              # name, contact email, location
-  site-url.ts             # canonical URL helper
+  i18n.ts                   # ALLE Texte, deutsch und englisch
+  photos.ts                 # Bild-Manifest inkl. Herkunft und Lizenz
+  team.ts roadmap.ts brand.ts
+  news/                     # Typen, Validierung, Stores
+  admin/auth.ts             # serverseitige Session
+content/news/*.json         # News-Fallback ohne Datenbank
+supabase/migrations/        # SQL-Schema für die News-Tabelle
 ```
 
-## Editing content
+## Inhalte pflegen
 
-**Nearly all copy lives in `lib/i18n.ts`.** It holds a `de` and an `en` object
-with an identical shape — TypeScript fails the build if the two drift apart, so
-a German change must be mirrored in English.
+**Fast alle Texte liegen in `lib/i18n.ts`** — mit je einem `de`- und einem
+`en`-Objekt identischer Form. TypeScript bricht den Build, wenn die beiden
+auseinanderlaufen; eine deutsche Änderung muss also englisch nachgezogen werden.
 
-- **Contact email, company name:** `lib/company.ts`
-- **Team members:** `lib/i18n.ts` → `team.members`. Each member has an empty
-  `personal` field for their personal connection to the forest; fill it in and
-  the line renders automatically on the card.
-- **Colours:** `tailwind.config.ts` — `paper` (warm off-white backgrounds),
-  `forest` (greens), `amber` (warm accent), `bark` (body text).
+- **Kontakt, Firmenname:** `lib/company.ts`
+- **Team:** `lib/team.ts` (Slugs, Fotos, persönliche Links) und
+  `lib/i18n.ts` → `team.members` (Namen, Rollen, Texte). Das Feld `personal`
+  ist leer und wird erst gerendert, wenn es gefüllt ist.
+- **Roadmap:** Reihenfolge und Status in `lib/roadmap.ts`, Texte in
+  `lib/i18n.ts` → `roadmap.milestones`.
+- **Social Media:** `lib/brand.ts`. Einträge ohne `url` werden **nirgends**
+  gerendert — es entstehen also keine toten Links. Sobald eine URL eingetragen
+  ist, erscheint das Icon automatisch in Footer, News-Seite und Kontaktblock.
+- **Farben:** `tailwind.config.ts` — `paper`, `forest`, `amber`, `bark`.
 
-## Language handling
+## News
 
-German is the default. English is an explicit choice made via the toggle, stored
-in `localStorage` and re-applied on the next visit; the `<html lang>` attribute
-follows the selection. The browser locale is deliberately *not* sniffed.
+Die News-Quelle wird zur Laufzeit gewählt:
 
-## Imagery
+| Bedingung | Quelle | Schreibbar |
+|---|---|---|
+| `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` gesetzt | Supabase | ja |
+| sonst | `content/news/*.json` | nein |
 
-All photographs are registered in `lib/photos.ts` together with where they came
-from and under which licence they may be used, and are rendered through
-`components/Photo.tsx`, which builds the `srcset` from pre-generated WebP
-variants. Do not reference a file in `public/images/photos` directly — go
-through the manifest, so provenance stays traceable.
+Die Website rendert in beiden Fällen. Ohne Datenbank zeigt der Admin-Bereich
+einen deutlichen Hinweis, statt so zu tun, als ließe sich speichern.
 
-The ARGUS photographs are the company's own material. **The two forest
-photographs on the homepage are not yet licence-cleared** — see
-`public/images/photos/README.md` for what needs establishing before go-live, and
-`photosNeedingLicenceReview()` for the list in code.
+### Supabase einrichten
 
-`public/frames` holds a 125-frame studio turntable of ARGUS II; the viewer on
-`/argus` uses every fifth frame and only starts loading once scrolled near.
+1. `supabase/migrations/0001_news.sql` im Supabase-SQL-Editor ausführen. Das
+   Skript legt Tabelle, Index, Trigger, RLS und den Storage-Bucket `news` an.
+2. `SUPABASE_URL` und `SUPABASE_SERVICE_ROLE_KEY` in der Umgebung setzen.
 
-## Accessibility notes
+Row Level Security bleibt aktiv, und es gibt **bewusst keine Policy** für
+`anon`. Sämtliche Zugriffe laufen serverseitig über den Service-Role-Key, der
+den Browser nie erreicht.
 
-- Scroll reveal animations are scoped to a `.js` class set before first paint,
-  so content is never hidden from visitors without JavaScript.
-- `prefers-reduced-motion` disables reveals and smooth scrolling.
-- The turntable is operable by keyboard through its range slider.
+## Admin-Bereich
+
+`/admin/news`, nicht in der Navigation verlinkt und in `robots.txt` gesperrt.
+
+Der Login braucht zwei Umgebungsvariablen:
+
+```
+ADMIN_PASSWORD=…            # langes Passwort
+ADMIN_SESSION_SECRET=…      # z. B. openssl rand -base64 48
+```
+
+Das Passwort wird serverseitig zeitkonstant verglichen; der Browser hält nur
+ein HMAC-signiertes, `httpOnly`-Cookie. **Im Quelltext stehen keine
+Zugangsdaten.** Fehlen die Variablen, meldet der Bereich sich als nicht
+eingerichtet, statt einen Ersatz-Login anzubieten.
+
+Vorlage aller Variablen: `.env.example`.
+
+## Zweisprachigkeit
+
+Deutsch ist Standard, Englisch über den Umschalter in der Navigation. Die
+Auswahl liegt in `localStorage` und gilt über Reload und Seitenwechsel hinweg;
+`<html lang>` wird mitgeführt. Die Browsersprache wird bewusst **nicht**
+ausgewertet.
+
+News-Beiträge haben optionale englische Felder. Fehlen sie, zeigt die englische
+Seite den deutschen Text.
+
+## Bilder
+
+Alle Fotos sind in `lib/photos.ts` mit Herkunft und Lizenz registriert und
+werden über `components/Photo.tsx` als responsives `srcset` aus vorab erzeugten
+WebP-Varianten ausgeliefert. Dateien in `public/images/` bitte nicht direkt
+referenzieren — nur über das Manifest, damit die Herkunft nachvollziehbar
+bleibt.
+
+Team- und ARGUS-Aufnahmen sind eigenes Material. **Die beiden Waldfotos auf der
+Startseite sind noch nicht lizenzgeprüft** — siehe
+`public/images/photos/README.md` und `photosNeedingLicenceReview()`.
+
+Neue Varianten erzeugen: siehe Anleitung in `public/images/photos/README.md`.
+
+## Barrierefreiheit
+
+- Reveal-Animationen hängen an einer `.js`-Klasse, die vor dem ersten Paint
+  gesetzt wird — ohne JavaScript ist nichts unsichtbar.
+- `prefers-reduced-motion` schaltet Animationen und Smooth Scrolling ab.
+- Skip-Link, sichtbare Fokuszustände, beschriftete Formularfelder,
+  `aria-invalid` und `role="alert"` bei Validierungsfehlern.
+- Der 360°-Viewer auf `/argus` ist per Tastatur über seinen Slider bedienbar.
+
+## Geprüft
+
+Typecheck und Produktionsbuild laufen sauber. Alle Seiten wurden auf Desktop
+(1440), Tablet (820) und Mobile (390) auf horizontalen Overflow sowie
+Konsolen-, Hydration- und Laufzeitfehler geprüft. Login, Session-Cookie,
+Validierung, Abmelden und die Sprachumschaltung sind im Browser verifiziert.
+
+**Nicht verifiziert:** der Supabase-Pfad (Schreiben, Bild-Upload). Dafür fehlen
+Zugangsdaten und Netzwerkzugriff — er ist vollständig implementiert, aber vor
+dem Produktiveinsatz einmal durchzutesten.
