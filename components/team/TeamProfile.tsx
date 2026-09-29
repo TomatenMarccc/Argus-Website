@@ -75,11 +75,6 @@ export default function TeamProfile({
                 </div>
               )}
 
-              <p className="mt-9 inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-100 px-4 py-2 text-xs font-semibold text-amber-700">
-                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-                {t.team.award}
-              </p>
-
               <div className="mt-10 rounded-2xl border border-forest-900/10 bg-paper p-6">
                 <h2 className="font-display text-lg font-semibold text-forest-950">
                   {t.contact.title}

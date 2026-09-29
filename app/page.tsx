@@ -36,7 +36,7 @@ export default async function Home() {
         logo: new URL("/images/brand/logo-mark-512.webp", siteUrl).toString(),
         slogan: "Dem Wald eine Stimme geben.",
         description:
-          "Artemis Civil Systems entwickelt Systeme zur Erfassung und Auswertung von Wildtier- und Umweltdaten.",
+          "Artemis Civil Systems entwickelt Systeme zur Erfassung und Auswertung von Umwelt- und Lebensraumdaten.",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Stuttgart",
@@ -69,7 +69,7 @@ export default async function Home() {
       />
       <SkipLink />
       <Nav />
-      <main id="inhalt" className="relative w-full">
+      <main id="inhalt" tabIndex={-1} className="relative w-full">
         <Hero />
         <What />
         <Value />

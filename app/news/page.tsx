@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "News | Artemis Civil Systems",
     description:
-      "Entwicklungen, Meilensteine und Einblicke aus unserer Arbeit an Wildtier- und Umweltdaten.",
+      "Entwicklungen, Meilensteine und Einblicke aus unserer Arbeit an Umwelt- und Lebensraumdaten.",
     type: "website",
     url: "/news",
   },
@@ -28,7 +28,7 @@ export default async function NewsPage() {
     <>
       <SkipLink />
       <Nav />
-      <main id="inhalt" className="relative w-full">
+      <main id="inhalt" tabIndex={-1} className="relative w-full">
         <NewsIndex posts={posts} />
       </main>
       <Footer />

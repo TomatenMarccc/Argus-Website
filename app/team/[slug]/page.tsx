@@ -63,7 +63,7 @@ export default function TeamMemberPage({ params }: Props) {
       />
       <SkipLink />
       <Nav />
-      <main id="inhalt" className="relative w-full">
+      <main id="inhalt" tabIndex={-1} className="relative w-full">
         <TeamProfile member={member} others={others} />
       </main>
       <Footer />

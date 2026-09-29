@@ -74,7 +74,7 @@ export default async function NewsPostPage({ params }: Props) {
       />
       <SkipLink />
       <Nav />
-      <main id="inhalt" className="relative w-full">
+      <main id="inhalt" tabIndex={-1} className="relative w-full">
         <NewsArticle post={post} />
       </main>
       <Footer />

@@ -16,7 +16,7 @@ export default function ImpressumPage() {
     <>
       <SkipLink />
       <Nav />
-      <main id="inhalt" className="relative w-full">
+      <main id="inhalt" tabIndex={-1} className="relative w-full">
         <ImpressumContent />
       </main>
       <Footer />

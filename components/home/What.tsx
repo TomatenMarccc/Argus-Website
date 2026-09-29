@@ -2,9 +2,14 @@
 
 import Reveal from "../Reveal";
 import { useT } from "../LanguageProvider";
-import { IconSatellite, IconSensor, IconHabitat, IconClimate } from "../illustrations/Icons";
+import {
+  IconCapture,
+  IconAnalyse,
+  IconCompare,
+  IconBuild,
+} from "../illustrations/Icons";
 
-const icons = [IconHabitat, IconSensor, IconClimate, IconSatellite];
+const icons = [IconCapture, IconAnalyse, IconCompare, IconBuild];
 
 /** Lead block: what the company actually does, before any hardware is named. */
 export default function What() {
@@ -27,7 +32,7 @@ export default function What() {
 
         <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {t.what.pillars.map((pillar, i) => {
-            const Icon = icons[i] ?? IconHabitat;
+            const Icon = icons[i] ?? IconCapture;
             return (
               <Reveal key={pillar.title} delay={(i % 4) * 80}>
                 <li className="h-full rounded-2xl border border-forest-900/10 bg-paper-100 p-6">
@@ -50,12 +55,6 @@ export default function What() {
             );
           })}
         </ol>
-
-        <Reveal>
-          <p className="mt-10 border-l-2 border-amber-500 pl-5 text-[0.97rem] leading-relaxed text-forest-900">
-            {t.what.note}
-          </p>
-        </Reveal>
       </div>
     </section>
   );

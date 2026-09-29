@@ -30,24 +30,19 @@ export default function Team() {
         {/* Group portrait: wide crop on desktop, taller crop on phones so the
             three of them stay recognisable instead of shrinking to a strip. */}
         <Reveal delay={80}>
-          <figure className="mt-12 overflow-hidden rounded-3xl bg-paper-200">
+          {/* Shown at the photograph's own 3:2 ratio, so nothing is cropped and
+              the group stays centred exactly as it was shot. */}
+          <figure className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl bg-paper-200">
             <Photo
               id="teamGroup"
               alt={t.team.groupPhotoAlt}
-              sizes="(min-width: 1024px) 78rem, 100vw"
-              className="h-[260px] w-full object-cover object-center sm:h-[360px] lg:h-[460px]"
+              sizes="(min-width: 1024px) 56rem, 100vw"
+              className="aspect-[3/2] w-full object-cover object-center"
             />
           </figure>
         </Reveal>
 
-        <Reveal delay={120}>
-          <p className="mt-8 inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-100 px-4 py-2 text-xs font-semibold text-amber-700">
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-            {t.team.award}
-          </p>
-        </Reveal>
-
-        <ul className="mt-10 grid gap-5 md:grid-cols-3">
+        <ul className="mt-12 grid gap-5 md:grid-cols-3">
           {team.map((member, i) => {
             const copy = t.team.members[member.key];
             return (
@@ -61,7 +56,7 @@ export default function Team() {
                       id={member.photo}
                       alt={copy.photoAlt}
                       sizes="(min-width: 768px) 24rem, 100vw"
-                      className="h-72 w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="aspect-[4/5] w-full object-cover object-[50%_18%] transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                     <div className="flex flex-1 flex-col p-6">
                       <h3 className="font-display text-lg font-semibold text-forest-950">

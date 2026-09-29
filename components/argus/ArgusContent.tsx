@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Reveal from "../Reveal";
 import Photo from "../Photo";
-import Turntable from "./Turntable";
 import { useT } from "../LanguageProvider";
 import { LeafMark } from "../illustrations/Icons";
 
@@ -185,27 +184,22 @@ export default function ArgusContent() {
         </div>
       </section>
 
-      {/* ---------- Sensors + turntable ---------- */}
+      {/* ---------- Sensors ---------- */}
       <section className="bg-forest-100 py-24 md:py-28">
-        <div className="site-shell grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="site-shell">
           <Reveal>
             <h2 className="font-display text-3xl font-semibold text-forest-950 md:text-4xl">
               {t.argus.sensorTitle}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-bark-700">
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-bark-700">
               {t.argus.sensorLead}
             </p>
 
-            <dl className="mt-8 divide-y divide-forest-900/10 rounded-2xl border border-forest-900/10 bg-paper">
+            <dl className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-forest-900/10 bg-forest-900/10 sm:grid-cols-2 lg:grid-cols-3">
               {t.argus.sensors.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex flex-col gap-1 px-5 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-                >
-                  <dt className="text-sm font-semibold text-forest-900">
-                    {s.label}
-                  </dt>
-                  <dd className="text-sm text-bark-700 sm:text-right">
+                <div key={s.label} className="bg-forest-100 p-5">
+                  <dt className="text-sm font-semibold text-forest-900">{s.label}</dt>
+                  <dd className="mt-1 text-[0.9rem] leading-relaxed text-bark-700">
                     {s.value}
                   </dd>
                 </div>
@@ -213,20 +207,6 @@ export default function ArgusContent() {
             </dl>
           </Reveal>
 
-          <Reveal delay={120}>
-            <h3 className="font-display text-xl font-semibold text-forest-950">
-              {t.argus.galleryTitle}
-            </h3>
-            <p className="mt-2 text-[0.93rem] text-bark-700">
-              {t.argus.galleryLead}
-            </p>
-            <div className="mt-6">
-              <Turntable
-                label={t.argus.turntableLabel}
-                hint={t.argus.turntableHint}
-              />
-            </div>
-          </Reveal>
         </div>
       </section>
 

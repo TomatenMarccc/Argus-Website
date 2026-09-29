@@ -2,10 +2,16 @@
 
 import Reveal from "../Reveal";
 import { useT } from "../LanguageProvider";
-import { IconSatellite, IconDrone, IconSensor, IconSurvey } from "../illustrations/Icons";
+import {
+  IconSatellite,
+  IconDrone,
+  IconHabitat,
+  IconSensor,
+  IconSurvey,
+} from "../illustrations/Icons";
 import CanopyDiagram from "../illustrations/CanopyDiagram";
 
-const gapIcons = [IconSatellite, IconDrone, IconSensor, IconSurvey];
+const gapIcons = [IconSatellite, IconDrone, IconHabitat, IconSensor, IconSurvey];
 
 export default function Collection() {
   const t = useT();

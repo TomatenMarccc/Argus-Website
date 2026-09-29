@@ -1,11 +1,16 @@
-/** Cross-section: the layers other methods see, and the one we work in. */
+/**
+ * Cross-section of the layers environmental data comes from.
+ *
+ * All layers are drawn with equal weight — none is singled out as "ours" or as
+ * a gap, because the point of the section is that they belong together.
+ */
 export default function CanopyDiagram() {
   return (
     <svg
-      viewBox="0 0 420 300"
+      viewBox="0 0 420 320"
       className="h-auto w-full"
       role="img"
-      aria-label="Schnittbild eines Waldes: Satelliten und Drohnen erfassen das Kronendach, unsere Messungen finden darunter am Boden statt"
+      aria-label="Schnittbild eines Waldes mit den Ebenen, auf denen Umweltdaten entstehen: Satellit und Drohne über dem Kronendach, feste Sensoren, Messungen am Boden und Begehungen darunter"
     >
       <defs>
         <linearGradient id="cd-sky" x1="0" y1="0" x2="0" y2="1">
@@ -14,66 +19,78 @@ export default function CanopyDiagram() {
         </linearGradient>
       </defs>
 
-      <rect width="420" height="300" rx="18" fill="url(#cd-sky)" />
+      <rect width="420" height="320" rx="18" fill="url(#cd-sky)" />
 
-      {/* Canopy band */}
+      {/* Satellite — highest layer */}
+      <g transform="translate(58 30)">
+        <rect x="-7" y="-7" width="14" height="14" rx="2" fill="#B5AC9D" />
+        <path d="M-7 -4l-11 -4 4 11 7 -3ZM7 -4l11 -4 -4 11 -7 -3Z" fill="#CBC3B4" />
+      </g>
+
+      {/* Drone */}
+      <g transform="translate(300 52)" fill="none" stroke="#9A9184" strokeWidth="2" strokeLinecap="round">
+        <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#B5AC9D" stroke="none" />
+        <path d="M-8 -3l-9 -6M8 -3l9 -6" />
+        <path d="M-21 -10h8M13 -10h8" />
+      </g>
+
+      {/* Sight lines from above, equal weight */}
+      <g stroke="#9A9184" strokeWidth="1.3" strokeDasharray="3 5" fill="none">
+        <path d="M58 44v72" />
+        <path d="M300 62v54" />
+      </g>
+
+      {/* Canopy */}
       <path
-        d="M10 128c40-30 62 6 96-14s52 12 92-6 62 16 100-4 70 4 112-6v52H10Z"
+        d="M10 138c40-30 62 6 96-14s52 12 92-6 62 16 100-4 70 4 112-6v54H10Z"
         fill="#8CC199"
         opacity="0.85"
       />
 
-      {/* Trunks reaching down into the layer we measure. */}
+      {/* Trunks */}
       {[58, 112, 168, 224, 280, 340, 392].map((x, i) => (
         <rect
           key={x}
           x={x - 4}
-          y={150 + (i % 2) * 6}
+          y={166 + (i % 2) * 6}
           width="8"
-          height={96 - (i % 2) * 6}
+          height={100 - (i % 2) * 6}
           rx="3"
           fill="#7E8F72"
           opacity="0.75"
         />
       ))}
 
+      {/* Fixed sensor mast — continuous readings at one point */}
+      <g transform="translate(142 200)" stroke="#5A5140" strokeWidth="2.4" fill="none" strokeLinecap="round">
+        <path d="M0 66V6" />
+        <circle cx="0" cy="2" r="3.6" fill="#5A5140" stroke="none" />
+        <path d="M6 -4a8 8 0 0 1 0 12M-6 -4a8 8 0 0 0 0 12" strokeWidth="1.6" />
+      </g>
+
       {/* Ground */}
-      <path d="M10 246h400v36a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8Z" fill="#D6CAAC" />
+      <path d="M10 266h400v36a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8Z" fill="#D6CAAC" />
 
-      {/* Above-canopy observers */}
-      <g fill="none" stroke="#6B6255" strokeWidth="1.5" strokeDasharray="3 4">
-        <path d="M64 34v72" />
-        <path d="M300 52v54" />
-      </g>
-      <circle cx="64" cy="26" r="9" fill="#B5AC9D" />
-      <circle cx="300" cy="44" r="9" fill="#B5AC9D" />
-
-      {/* Our measurement layer */}
-      <rect
-        x="24"
-        y="188"
-        width="372"
-        height="54"
-        rx="12"
-        fill="#3D7A50"
-        opacity="0.12"
-        stroke="#3D7A50"
-        strokeOpacity="0.45"
-        strokeWidth="1.5"
-      />
-      <g fill="#2E5C3D">
-        <circle cx="96" cy="215" r="4" />
-        <circle cx="176" cy="215" r="4" />
-        <circle cx="256" cy="215" r="4" />
-        <circle cx="336" cy="215" r="4" />
-      </g>
+      {/* Ground-level track with measurement points */}
       <path
-        d="M96 215h240"
+        d="M56 252h300"
         stroke="#2E5C3D"
-        strokeWidth="1.5"
+        strokeWidth="1.6"
         strokeDasharray="2 6"
         strokeLinecap="round"
       />
+      <g fill="#2E5C3D">
+        <circle cx="86" cy="252" r="3.6" />
+        <circle cx="166" cy="252" r="3.6" />
+        <circle cx="246" cy="252" r="3.6" />
+        <circle cx="326" cy="252" r="3.6" />
+      </g>
+
+      {/* Field survey — a person on the same ground */}
+      <g transform="translate(372 226)" stroke="#5A5140" strokeWidth="2.2" fill="none" strokeLinecap="round">
+        <circle cx="0" cy="2" r="3.4" fill="#5A5140" stroke="none" />
+        <path d="M0 6v9M0 15l-4 9M0 15l5 9M-5 10h10" />
+      </g>
     </svg>
   );
 }

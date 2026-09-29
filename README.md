@@ -5,15 +5,17 @@ Router) + TypeScript + Tailwind CSS**.
 
 ## Positionierung
 
-Die Website stellt **Wildlife & Environmental Monitoring** in den Mittelpunkt,
-nicht eine einzelne Hardwareplattform. Die inhaltliche Hierarchie der
-Startseite folgt bewusst dieser Reihenfolge:
+Die Website stellt **Umwelt- und Lebensraumdaten** in den Mittelpunkt, nicht
+eine einzelne Hardwareplattform. Die inhaltliche Hierarchie der Startseite
+folgt bewusst dieser Reihenfolge:
 
-1. Monitoring von Wildtieren und Lebensräumen
-2. Datenerfassung
+1. Was wir tun: erfassen, auswerten, vergleichen, bauen
+2. Datenerfassung und die Ebenen, die zusammengehören
 3. Auswertung und Erkenntnisse (ATHENE)
 4. Technologie / Systeme
 5. **ARGUS** — als derzeit eingesetztes Werkzeug zur Datenerfassung
+
+Wildtierdaten sind ausdrücklich **kein** Fokus und kommen nirgends vor.
 
 ARGUS bleibt prominent sichtbar, erscheint aber überall als Instrument
 innerhalb des größeren Ökosystems, nie als Unternehmenszweck.
