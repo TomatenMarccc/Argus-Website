@@ -9,24 +9,24 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: "Artemis Civil Systems — Wildlife & Environmental Monitoring",
+    default: "Artemis Civil Systems — Umwelt- und Lebensraumdaten",
     template: `%s | ${company.name}`,
   },
   description:
-    "Artemis Civil Systems entwickelt Systeme zur Erfassung und Auswertung von Wildtier- und Umweltdaten — damit Veränderungen in Lebensräumen früh sichtbar werden.",
+    "Artemis Civil Systems entwickelt Systeme zur Erfassung und Auswertung von Umwelt- und Lebensraumdaten — damit Veränderungen in Lebensräumen früh sichtbar werden.",
   applicationName: company.name,
   authors: [{ name: company.name, url: "/" }],
   creator: company.name,
   publisher: company.name,
   keywords: [
     "Artemis Civil Systems",
-    "Wildlife Monitoring",
-    "Wildtiermonitoring",
-    "Environmental Monitoring",
     "Umweltdaten",
+    "Lebensraumdaten",
+    "Environmental Monitoring",
+    "Waldmonitoring",
     "Biodiversität",
-    "Lebensraum-Monitoring",
     "Datenerfassung",
+    "Umweltsensorik",
     "ARGUS",
     "Stuttgart",
   ],
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Artemis Civil Systems — Wildlife & Environmental Monitoring",
+    title: "Artemis Civil Systems — Umwelt- und Lebensraumdaten",
     description:
-      "Wir erfassen und erschließen Wildtier- und Umweltdaten — dort, wo der Lebensraum ist.",
+      "Wir erfassen und erschließen Umweltdaten — dort, wo der Lebensraum ist.",
     type: "website",
     locale: "de_DE",
     alternateLocale: ["en_GB"],
@@ -61,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Artemis Civil Systems — Wildlife & Environmental Monitoring",
-    description: "Wildtier- und Umweltdaten, erfasst wo sie entstehen.",
+    title: "Artemis Civil Systems — Umwelt- und Lebensraumdaten",
+    description: "Umwelt- und Lebensraumdaten, erfasst wo sie entstehen.",
     images: ["/images/og.jpg"],
   },
 };

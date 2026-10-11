@@ -36,6 +36,11 @@ export default function RoadmapSection() {
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-bark-700 md:text-lg">
             {t.roadmap.lead}
           </p>
+
+          <p className="mt-7 inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-100 px-4 py-2 text-xs font-semibold text-amber-700">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+            {t.roadmap.award}
+          </p>
         </Reveal>
 
         <ol className="relative mt-14 grid gap-8 lg:grid-cols-5 lg:gap-5">
@@ -75,10 +80,6 @@ export default function RoadmapSection() {
             );
           })}
         </ol>
-
-        <Reveal>
-          <p className="mt-12 text-sm text-bark-500">{t.roadmap.disclaimer}</p>
-        </Reveal>
       </div>
     </section>
   );

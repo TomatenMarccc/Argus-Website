@@ -40,37 +40,36 @@ const de = {
   hero: {
     eyebrow: "Artemis Civil Systems",
     slogan: "Dem Wald eine Stimme geben.",
-    lead: "Wir entwickeln Systeme, die Wildtiere und ihre Lebensräume vor Ort beobachten — und aus den Messwerten ein verständliches Bild davon machen, wie sich ein Lebensraum verändert.",
+    lead: "Wir entwickeln Systeme, die Lebensräume vor Ort erfassen — und aus den Messwerten ein verständliches Bild davon machen, wie sich ein Bestand über die Zeit verändert.",
     primaryCta: "Was wir tun",
     secondaryCta: "ARGUS kennenlernen",
     imageAlt:
       "Weiter Blick über einen dichten Wald, dahinter ein Flusstal und Berge unter hohem, hellem Himmel",
   },
 
-  /* 1 — Wildlife & Environmental Monitoring */
+  /* 1 — Was wir tun */
   what: {
-    eyebrow: "Wildlife & Environmental Monitoring",
+    eyebrow: "Umwelt- und Lebensraumdaten",
     title: "Wir machen Lebensräume messbar.",
-    lead: "Artemis Civil Systems erfasst, verarbeitet und erschließt Umwelt- und Wildtierdaten. Unser Ziel ist eine belastbare Datengrundlage, mit der sich Veränderungen in einem Lebensraum früh erkennen und über die Zeit vergleichen lassen.",
+    lead: "Artemis Civil Systems erfasst, verarbeitet und erschließt Umweltdaten. Unser Ziel ist eine belastbare Datengrundlage, mit der sich Veränderungen in einem Lebensraum früh erkennen und über die Zeit vergleichen lassen.",
     pillars: [
       {
-        title: "Monitoring",
-        body: "Wildtiere und Lebensräume systematisch beobachten — wiederholbar, nachvollziehbar und eindeutig einem Ort zugeordnet.",
+        title: "Erfassen",
+        body: "Messwerte dort aufnehmen, wo sie entstehen: im Bestand, unter dem Kronendach, statt nur aus der Distanz.",
       },
       {
-        title: "Datenerfassung",
-        body: "Messwerte dort erheben, wo sie entstehen: im Bestand, unter dem Kronendach, statt nur aus der Distanz.",
+        title: "Auswerten",
+        body: "Jede Messung räumlich zuordnen und zu Karten, Zeitverläufen und verständlichen Hinweisen verarbeiten.",
       },
       {
-        title: "Auswertung",
-        body: "Aus einzelnen Messungen Karten, Zeitverläufe und nachvollziehbare Hinweise auf Veränderung machen.",
+        title: "Vergleichen",
+        body: "Dieselben Wege wiederholt erfassen. Erst dadurch wird aus Momentaufnahmen eine sichtbare Entwicklung.",
       },
       {
-        title: "Systeme",
-        body: "Die Technik dahinter entwickeln wir selbst — offen für weitere Erfassungswege, nicht gebunden an ein einzelnes Gerät.",
+        title: "Bauen",
+        body: "Die Systeme dafür entwickeln wir selbst — offen angelegt, nicht gebunden an ein einzelnes Gerät.",
       },
     ],
-    note: "ARGUS ist dabei eines unserer Werkzeuge zur Datenerfassung — nicht der Zweck des Unternehmens.",
   },
 
   value: {
@@ -133,16 +132,17 @@ const de = {
   collection: {
     eyebrow: "Datenerfassung",
     title: "Daten entstehen dort, wo der Lebensraum ist.",
-    lead: "Über Lebensräume gibt es bereits viele Daten. Der Bereich unter den Baumkronen bleibt dabei aber meist außen vor — und genau dort spielt sich das Leben ab, das wir verstehen wollen.",
-    gapTitle: "Die fehlende Ebene",
+    lead: "Umweltdaten entstehen auf mehreren Ebenen — von der Satellitenübersicht bis zur Messung direkt am Boden. Jede für sich zeigt nur einen Ausschnitt.",
+    gapTitle: "Die Ebenen, die zusammengehören",
     gap: [
-      { title: "Satelliten", body: "liefern Übersichten über große Flächen — aber aus großer Distanz." },
-      { title: "Drohnen", body: "zeigen vor allem das Kronendach, also die oberste Schicht." },
-      { title: "Feste Sensoren", body: "messen laufend, aber nur an einzelnen Punkten." },
-      { title: "Begehungen", body: "sind unverzichtbar und genau — brauchen aber viel Zeit." },
+      { title: "Satellit", body: "liefert die Übersicht über große Flächen und den Blick über die Zeit." },
+      { title: "Luftbild und Drohne", body: "zeigen Kronendach und Bestandsstruktur von oben." },
+      { title: "Boden", body: "erfasst Messwerte unter dem Kronendach — dort, wo der Blick von oben endet." },
+      { title: "Feste Sensoren", body: "liefern durchgehende Zeitreihen an ausgewählten Punkten." },
+      { title: "Begehung", body: "bringt die fachliche Einordnung, die keine Messung ersetzt." },
     ],
     gapOutro:
-      "Was fehlt, ist eine Methode, die bodennahe Daten entlang derselben Wege regelmäßig erfasst und vergleichbar macht. Genau diese Lücke füllen wir.",
+      "Keine dieser Ebenen genügt für sich allein. Unser Ziel ist, sie zu einer gemeinsamen, vergleichbaren Datengrundlage zusammenzuführen. Heute erfassen wir davon die Ebene am Boden.",
     whatTitle: "Was wir erfassen",
     what: [
       { label: "Bild", value: "Georeferenzierte Aufnahmen des Bestands" },
@@ -213,6 +213,7 @@ const de = {
     title: "Wohin wir unterwegs sind.",
     lead: "Unsere Entwicklung läuft in aufeinander aufbauenden Stufen. Die folgenden Angaben stammen aus unserer internen Planung; wo ein Zeitraum noch offen ist, steht er bewusst unscharf.",
     status: { done: "Abgeschlossen", current: "Aktuell", planned: "Geplant" },
+    award: "Finalist · Samsung Solve for Tomorrow 2026",
     milestones: {
       "argus-i": {
         period: "",
@@ -240,15 +241,12 @@ const de = {
         body: "Ein einheitliches Jahresangebot mit regelmäßigen Erhebungen, abgeleitet aus dem nachgewiesenen Bedarf.",
       },
     },
-    disclaimer:
-      "Ein vollständig autonomer Regelbetrieb wird derzeit ausdrücklich noch nicht beansprucht.",
   },
 
   team: {
     eyebrow: "Wer wir sind",
     title: "Meet our Team",
     lead: "Wir sind drei duale Wirtschaftsinformatikstudenten aus Stuttgart. Jeder von uns hat einen etwas anderen persönlichen Bezug zum Wald. Was uns verbindet, ist die Motivation, etwas zu seinem langfristigen Erhalt beizutragen.",
-    award: "Finalist · Samsung Solve for Tomorrow 2026",
     groupPhotoAlt:
       "Simon, Marc und Selina im Studio, alle in dunklen Poloshirts mit dem Artemis-Logo",
     profileCta: "Profil ansehen",
@@ -310,7 +308,7 @@ const de = {
 
   footer: {
     tagline:
-      "Systeme zur Erfassung und Auswertung von Wildtier- und Umweltdaten.",
+      "Systeme zur Erfassung und Auswertung von Umwelt- und Lebensraumdaten.",
     columnsTitle: { site: "Seite", project: "Projekt", legal: "Rechtliches" },
     imprint: "Impressum",
     rights: "Alle Rechte vorbehalten.",
@@ -389,16 +387,12 @@ const de = {
     ],
     statusTitle: "Entwicklungsstand",
     statusLead:
-      "ARGUS entsteht in aufeinander aufbauenden Entwicklungsstufen. Wir beanspruchen ausdrücklich noch keinen vollständig autonomen Regelbetrieb.",
+      "ARGUS entsteht in aufeinander aufbauenden Entwicklungsstufen.",
     status: [
       { label: "ARGUS I", state: "Abgeschlossen", body: "Der erste funktionsfähige Prototyp. Mit ihm haben wir Fahrtechnik, Sensorik und Datenerfassung grundsätzlich erprobt." },
       { label: "ARGUS II", state: "Aktuell", body: "Die zweite Stufe ist modularer aufgebaut und hat eine überarbeitete Mechanik, Energieversorgung, Sensorik und Rechenleistung." },
       { label: "Feldtests", state: "Als Nächstes", body: "Zuverlässigkeit und Einsatz im realen Bestand werden geprüft: Fahrzeug, Sensorik, Datenpipeline und Ablauf." },
     ],
-    galleryTitle: "ARGUS II im Detail",
-    galleryLead: "Aufnahmen unseres aktuellen Systems. Zieh am Bild, um das Fahrzeug zu drehen.",
-    turntableLabel: "ARGUS II drehen — 360-Grad-Ansicht",
-    turntableHint: "Ziehen zum Drehen",
     ctaTitle: "Fragen zum System?",
     ctaBody: "Ob Forstbetrieb, Forschung oder einfach Interesse an dem, was wir bauen — schreib uns gern.",
     ctaButton: "Kontakt aufnehmen",
@@ -454,7 +448,7 @@ const en: Dictionary = {
   hero: {
     eyebrow: "Artemis Civil Systems",
     slogan: "Giving the forest a voice.",
-    lead: "We build systems that observe wildlife and their habitats on the ground — and turn the readings into a clear picture of how a habitat is changing.",
+    lead: "We build systems that record habitats on the ground — and turn the readings into a clear picture of how a stand changes over time.",
     primaryCta: "What we do",
     secondaryCta: "Meet ARGUS",
     imageAlt:
@@ -462,28 +456,27 @@ const en: Dictionary = {
   },
 
   what: {
-    eyebrow: "Wildlife & Environmental Monitoring",
+    eyebrow: "Environmental data",
     title: "We make habitats measurable.",
-    lead: "Artemis Civil Systems records, processes and opens up environmental and wildlife data. Our aim is a dependable body of data that makes change in a habitat visible early and comparable over time.",
+    lead: "Artemis Civil Systems records, processes and opens up environmental data. Our aim is a dependable body of data that makes change in a habitat visible early and comparable over time.",
     pillars: [
       {
-        title: "Monitoring",
-        body: "Observing wildlife and habitats systematically — repeatable, traceable and tied to a precise location.",
-      },
-      {
-        title: "Data collection",
+        title: "Record",
         body: "Taking readings where they arise: within the stand, beneath the canopy, rather than only from a distance.",
       },
       {
-        title: "Analysis",
-        body: "Turning individual readings into maps, time series and traceable indications of change.",
+        title: "Analyse",
+        body: "Placing every measurement spatially and turning it into maps, time series and findings people can read.",
       },
       {
-        title: "Systems",
-        body: "We build the technology behind it ourselves — open to further collection methods, not tied to a single device.",
+        title: "Compare",
+        body: "Covering the same routes repeatedly. Only then do snapshots become a visible development.",
+      },
+      {
+        title: "Build",
+        body: "We develop the systems for it ourselves — laid out openly, not tied to a single device.",
       },
     ],
-    note: "ARGUS is one of our data collection tools in this — not the purpose of the company.",
   },
 
   value: {
@@ -530,16 +523,17 @@ const en: Dictionary = {
   collection: {
     eyebrow: "Data collection",
     title: "Data arises where the habitat is.",
-    lead: "There is already a great deal of data about habitats. The space beneath the canopy, however, is usually left out — and that is precisely where the life we want to understand happens.",
-    gapTitle: "The missing layer",
+    lead: "Environmental data arises on several layers — from the satellite overview down to readings taken on the ground. Each on its own shows only a fragment.",
+    gapTitle: "The layers that belong together",
     gap: [
-      { title: "Satellites", body: "give an overview of large areas — but from a great distance." },
-      { title: "Drones", body: "mostly capture the canopy, meaning the topmost layer." },
-      { title: "Fixed sensors", body: "measure continuously, but only at individual points." },
-      { title: "Field surveys", body: "are indispensable and precise — but take a great deal of time." },
+      { title: "Satellite", body: "gives the overview of large areas and the view across time." },
+      { title: "Aerial and drone", body: "show the canopy and the structure of the stand from above." },
+      { title: "Ground level", body: "records readings beneath the canopy — where the view from above ends." },
+      { title: "Fixed sensors", body: "provide continuous time series at selected points." },
+      { title: "Field survey", body: "brings the expert judgement no measurement replaces." },
     ],
     gapOutro:
-      "What is missing is a method that records ground-level data along the same routes regularly and makes it comparable. That is the gap we fill.",
+      "None of these layers is sufficient on its own. Our goal is to bring them together into one comparable body of data. Today we record the ground layer ourselves.",
     whatTitle: "What we record",
     what: [
       { label: "Imagery", value: "Georeferenced captures of the stand" },
@@ -594,6 +588,7 @@ const en: Dictionary = {
     title: "Where we are heading.",
     lead: "Our development runs in successive stages. The following comes from our internal planning; where a period is still open, it is deliberately left vague.",
     status: { done: "Complete", current: "Current", planned: "Planned" },
+    award: "Finalist · Samsung Solve for Tomorrow 2026",
     milestones: {
       "argus-i": {
         period: "",
@@ -621,15 +616,12 @@ const en: Dictionary = {
         body: "A consistent annual offering with regular surveys, derived from demonstrated demand.",
       },
     },
-    disclaimer:
-      "Fully autonomous routine operation is explicitly not claimed at this stage.",
   },
 
   team: {
     eyebrow: "Who we are",
     title: "Meet our Team",
     lead: "We are three work-study business informatics students from Stuttgart. Each of us has a slightly different personal connection to the forest. What we share is the motivation to contribute something to its long-term survival.",
-    award: "Finalist · Samsung Solve for Tomorrow 2026",
     groupPhotoAlt:
       "Simon, Marc and Selina in the studio, all wearing dark polo shirts with the Artemis logo",
     profileCta: "View profile",
@@ -688,7 +680,7 @@ const en: Dictionary = {
   },
 
   footer: {
-    tagline: "Systems for recording and analysing wildlife and environmental data.",
+    tagline: "Systems for recording and analysing environmental and habitat data.",
     columnsTitle: { site: "Site", project: "Project", legal: "Legal" },
     imprint: "Legal notice",
     rights: "All rights reserved.",
@@ -765,17 +757,12 @@ const en: Dictionary = {
       { label: "Position", value: "GNSS, IMU and vehicle odometry" },
     ],
     statusTitle: "Development status",
-    statusLead:
-      "ARGUS is being built in successive development stages. We explicitly do not yet claim fully autonomous routine operation.",
+    statusLead: "ARGUS is being built in successive development stages.",
     status: [
       { label: "ARGUS I", state: "Complete", body: "The first working prototype. With it we tested the fundamentals of driving, sensing and data capture." },
       { label: "ARGUS II", state: "Current", body: "The second stage is more modular, with reworked mechanics, power supply, sensors and compute." },
       { label: "Field tests", state: "Next", body: "Reliability and real deployment are being tested: vehicle, sensors, data pipeline and procedure." },
     ],
-    galleryTitle: "ARGUS II up close",
-    galleryLead: "Photographs of our current system. Drag the image to rotate the vehicle.",
-    turntableLabel: "Rotate ARGUS II — 360 degree view",
-    turntableHint: "Drag to rotate",
     ctaTitle: "Questions about the system?",
     ctaBody: "Whether you manage land, work in research, or are simply curious about what we are building — do get in touch.",
     ctaButton: "Contact us",

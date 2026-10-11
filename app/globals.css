@@ -68,13 +68,18 @@ canvas {
   top: 0;
   z-index: 100;
 }
-.skip-link:focus {
+.skip-link:focus-visible {
   left: 1rem;
   top: 1rem;
   padding: 0.75rem 1.25rem;
   border-radius: 9999px;
   background: #193322;
   color: #fcfbf7;
+}
+
+/* The content target takes focus programmatically; it must not draw a ring. */
+main:focus {
+  outline: none;
 }
 
 :focus-visible {

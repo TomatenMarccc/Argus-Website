@@ -30,7 +30,7 @@ export default function ArgusPage() {
     <>
       <SkipLink />
       <Nav />
-      <main id="inhalt" className="relative w-full">
+      <main id="inhalt" tabIndex={-1} className="relative w-full">
         <ArgusContent />
       </main>
       <Footer />

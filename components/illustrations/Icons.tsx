@@ -181,6 +181,52 @@ export function IconSurvey(p: IconProps) {
   );
 }
 
+/* ---------- What we do ---------- */
+
+export function IconCapture(p: IconProps) {
+  return (
+    <Frame {...p}>
+      <path d="M24 40V22" />
+      <circle cx="24" cy="17" r="4" />
+      <path d="M31 10a10 10 0 0 1 0 14M17 10a10 10 0 0 0 0 14" />
+      <path d="M12 40h24" />
+      <path d="M19 40v-5h10v5" />
+    </Frame>
+  );
+}
+
+export function IconAnalyse(p: IconProps) {
+  return (
+    <Frame {...p}>
+      <path d="M8 38V18M18 38V10M28 38V24M38 38V14" />
+      <path d="M5 42h38" />
+      <path d="M8 18l10-8 10 14 10-10" />
+    </Frame>
+  );
+}
+
+export function IconCompare(p: IconProps) {
+  return (
+    <Frame {...p}>
+      <path d="M6 30c5-12 11-12 16 0s11 12 16 0" />
+      <path d="M6 18c5-12 11-12 16 0s11 12 16 0" opacity="0.5" />
+      <path d="M6 40h36" />
+      <circle cx="22" cy="24" r="2" fill="currentColor" stroke="none" />
+    </Frame>
+  );
+}
+
+export function IconBuild(p: IconProps) {
+  return (
+    <Frame {...p}>
+      <rect x="6" y="20" width="14" height="14" rx="2" />
+      <rect x="28" y="20" width="14" height="14" rx="2" />
+      <rect x="17" y="6" width="14" height="14" rx="2" />
+      <path d="M20 27h8M24 20v0" />
+    </Frame>
+  );
+}
+
 /* ---------- Small decorative marks ---------- */
 
 export function LeafMark({ className = "" }: IconProps) {
